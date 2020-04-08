@@ -1,0 +1,41 @@
+﻿/* SEARCH */
+
+#search { width:100%; .padding-left(@leftPadSearch); margin-top:@margTopSearch}
+/*#search.loading { background-image:url(/img/mobile/common/spinner.gif); background-repeat: no-repeat; background-position:3px center; }*/
+#sInpt #loading {z-index:3; top:-47px; width:31%; .left(19px); .margin-left(-15%); position:absolute; padding:60px 0; }
+#sInpt #loading .spin {margin:0 auto; border-top: 4px solid transparent; .border-right(4px solid transparent); border-bottom: 4px solid @gry4; .border-left(4px solid @gry4);}
+
+/*styles the search magnifier icon left corner of search*/
+#srch .i-search {color:@gry3; position:absolute;.search-icon-size()}
+
+/*styles the cross in the right corner of search - display none on init*/
+#searchX {display:none; position:absolute; top:@search-close-pos; .right(0); padding:@s; font-size:@l; color:@gry5; .text-align-right(); vertical-align:middle; cursor:pointer}
+#searchX:hover {color:@gry4}
+
+#sBox {width:100%;padding:0}
+#sInpt {width:100%}
+.act #sBtn {.padding-left(8px)}
+.act #sBtn .btn {background-color:@gry6; margin-top:4px}
+
+#searchResults span {position:absolute; top:0; right:0; padding:@m; background:#fff; font-weight:normal; font-size:11px; color: @gry4; }
+#searchResults,#searchEmpty span {}
+#searchResults, #searchEmpty {margin:0 0; .box-sizing(border-box); width:100%; position:@searchResultsPos; z-index: 2;}
+#searchResults { margin:@searchResultsMargin 0; }
+#searchResults .tile {padding:0 8px}
+#searchResults a {color:#434446; margin-top:0; line-height: 1.3 !important; border-bottom: 1px solid #dfdfe0; padding:13px}
+#searchResults a:last-child {border:0}
+#searchResults em {font-weight:bold;font-style:normal}
+#searchResults .sel, #searchResults a:hover {background-color:@gry9;}
+#searchEmpty span {color:@gry4; .padding-left(@l); border:@border-solid; display:block; padding-top:@m; padding-bottom:@m;background-color:#fff;}
+.sbmtPos {width: 18%; bottom: -2px}
+
+/*Gets rid of extra 'x' in search inputs in IE*/
+::-ms-clear { display: none; }
+
+/* Metro pages */
+input#js-sf-search-term {.padding-left(40px);}
+#largesearchwrapper, input#js-sf-search-term + .i-search {position:absolute; top:11px; .left(10px); font-size:25px; color:@gry3}
+.fg input#js-sf-search-term + .i-search {position:absolute; top:11px; .left(11px); font-size:25px; color:@gry3}
+
+.fg input#js-search + .i-search {position:absolute; top:30px; .left(11px); font-size:25px; color:@gry3}
+input#js-search {.padding-left(40px);}

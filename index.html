@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-266806-100"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-266806-100");
+  </script>
+  <title>viagogo Jobs | Jobs in New York, Limerick, Taipei and San Antonio</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/css/a.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="viagogo is the world's largest online marketplace for tickets to live events. We're hiring web developers, front-end developers, UX designers, software engineers, IT specialists, product analysts, data scientists and more! Openings for full-time, graduates, placements and internships. Explore jobs in Geneva, London, Limerick and elsewhere."
+  />
+</head>
+
+<body class="txtc-s bWht">
+  <div id="hdr">
+    <div class="inxxl rel cfix">
+      <span id="l1" class="fltl mt0">
+        <i class="i-via cWht"></i><i class="i-go"></i><i class="i-go cWht"></i>
+      </span>
+      <span class="fltl t m cWht mtl mlm pointer" id="viagogoLogo">
+        viagogo jobs
+      </span>
+    </div>
+  </div>
+  <div class="inxxl rel cfix">
+    <div class="noBcrmb ptl pb0">
+      <div id="jobBoard">
+        <div class="gRow">
+          <div class="gCol2">
+
+            <div v-if="!allLocations">
+              <div class="spin s mtm"></div>
+            </div>
+            <div v-else>
+              <div class="fg">
+                <label>Show jobs in:</label>
+                <select v-model="selectedLocation" class="fes">
+                  <option>All Locations</option>
+                  <option v-for="loc in allLocations" :unique-key="true">{{loc}}</option>
+                </select>
+                <hr>
+              </div>
+            </div>
+
+            <div v-if="!allDepartments">
+              <div class="spin s mtm"></div>
+            </div>
+            <div v-else>
+
+              <div class="fg">
+                <label class="container">All
+                  <input type="radio" v-model="selectedDepartment" value="All" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div v-for="department in allDepartments">
+                  <div v-if="department.jobs.length>0">
+                    <label class="container"> {{department.name}}
+                      <input type="radio" v-model="selectedDepartment" v-bind:value="department.name" name="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="gCol9">
+            <div class="sash">{{selectedDepartment}}</div>
+            <div class="tile mbm">
+              <table class="list">
+
+                  <tr v-for="job in filteredJobs">
+                    <td class="nowrap t s" id="content-desktop">
+                      
+                      <strong>{{job.departments[0].name}}</strong>
+                    </td>
+                    <td>
+                      <i id="content-mobile">{{job.departments[0].name}}</i>
+                      <h4>{{job.title}} </span>
+                        <span class="t xs">
+                          <span class="h s m0 bk">
+                            <i class="i-location"></i>
+                            <span class="t s">{{job.location.name}}</span>
+
+                          </span>
+
+                        </span>
+                    </td>
+                    <td class="nowrap vbot">
+                      <div class="txtr">
+                        <a class="btn pri" v-bind:href="job.absolute_url">Apply</a>
+                      </div>
+                    </td>
+
+                  </tr>
+
+                </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <footer id="ftr">
+    <div class="pg txtc">
+      <h6 class="t m pbl cWht">Stay Up to Date</h6>
+      <ul id="ftrSocial">
+        <li>
+          <a href="https://www.facebook.com/viagogo" target="blank">
+            <i class="i-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/viagogo" target="blank">
+            <i class="i-twitter"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="mbl">
+        <li>
+          <a class="t s cWht" href="http://www.viagogo.com">www.viagogo.com</a>
+        </li>
+      </ul>
+      <div id="ftrTCs">
+        Copyright &copy; viagogo AG 2019
+        <a href="http://www.viagogo.com/about/company" data-modal="true" target="_blank">Company Details</a>
+        <br /> Use of this web site constitutes acceptance of the
+        <a href="http://www.viagogo.com/help/termsandconditions" rel="nofollow" data-modal="true" target="_blank">Terms and Conditions</a>
+        and
+        <a href="http://www.viagogo.com/help/privacy" rel="nofollow" data-modal="true" target="_blank">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script>
+    var app = new Vue(
+      {
+        el: "#jobBoard",
+        data: {
+          allJobs: null,
+          allDepartments: null,
+          allLocations: null,
+          selectedDepartment: "All",
+          selectedLocation: "All Locations"
+        },
+        computed: {
+          filteredJobs: function () {
+            if (this.allJobs != null) {
+              let vm = this;
+              let dept = vm.selectedDepartment;
+              let loc = vm.selectedLocation;
+              let jobs = vm.allJobs
+
+              if (dept !== "All") {
+                jobs = jobs.filter(j => j.departments[0].name === dept)
+              }
+              if (loc !== "All Locations") {
+                jobs = jobs.filter(j => j.location.name === loc)
+              }
+              return jobs
+            }
+            else { return null }
+          }
+        },
+        mounted() {
+          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/jobs?content=true')
+            .then(response => response.json())
+            .then(r => {
+              this.allJobs = r.jobs
+              var locations = []
+              this.allJobs.forEach(element => {
+                locations.indexOf(element.location.name) === -1 ? locations.push(element.location.name) : null
+                this.allLocations = locations
+              });
+            });
+
+          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/departments')
+            .then(response => response.json())    // one extra step
+            .then(d => {
+              this.allDepartments = d.departments
+            })
+            .catch(error => console.error(error));
+        }
+      }
+    );
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+/*   ~"@{val}px"  concatination  */
+/*size xs s m(default) l xl xxl*/
+
+
+/*============================= Shared Variables =============================*/
+
+
+/*Colors - 50 shades of grey*/
+@gry1:#37383a;
+@gry2:#5f6062;
+@gry3:#7f8081;
+@gry4:#9fa0a1;
+@gry5:#bfc0c0;
+@gry6:#dfdfe0;
+@gry7:#efefef;
+@gry8:#f2f2f2;
+@gry9:#f9f9f9;
+
+/*Green*/
+@grn1:#6fb229;
+@grn2:#8cc63f;
+@grn3:#a3d165;
+@grn4:#badd8c;
+@grn5:#d1e8b2;
+@grn6:#e8f4d9;
+@grn7:#f3f9eb;
+
+/*Blue*/
+@blu1:#1eb0ee;
+@blu2:#2fc5f3;
+@blu3:#59d1f5;
+@blu4:#82dcf8;
+@blu5:#ace8fa;
+@blu6:#d5f3fd;
+@blu7:#eaf9fe;
+
+/*Magenta*/
+@mag1:#e91260;
+@mag2:#ff2a77;
+@mag3:#f4538d;
+@mag4:#f77eaa;
+@mag5:#f9a9c6;
+@mag6:#fcd4e3;
+@mag7:#fee9f1;
+
+/*Yellow*/
+@yel1:#ffb900;
+@yel2:#ffcc00;
+@yel3:#ffd633;
+@yel4:#ffe066;
+@yel5:#ffeb99;
+@yel6:#fff5cc;
+@yel7:#fffae5;
+
+/*Red*/
+@red1:#e45d5d;
+@red2:#900;
+@red3:#e00007;
+
+/*Orange*/
+@org1:#f0ad4e;
+
+/*Shared*/
+@bodyFont: "foundry", "Helvetica Neue", Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; /*overridden here so foundry isnt loaded to mobile*/
+
+/*Links*/
+@linkColor:(@blu1);
+@linkColorHover:(darken(@blu1, 20%));
+
+/*Box Spacing*/
+@xxs:   (3px);
+@xs:    (6px);
+@s:     (9px);
+@m:     (12px);
+@l:     (18px);
+@xl:    (24px);
+@xxl:   (36px);
+@xxxl:   (48px);
+
+/*corner radius*/
+@radius-m:      4px;
+@radius-s:      3px;
+@radius-circle: 50%;
+
+/*Border types*/
+@border-solid: 1px solid @gry6;
+@border-m: 2px solid @gry6;
+
+/* Colorbox */
+@cBoxBg:#fff;
+@cBoxShadow:0 0 9px rgba(0,0,0,.2);
+
+/* Media Query Breakpoints */
+@media-s: ~"screen and (max-width:480px)"; /*Second breakpoint - For smartphone viewports*/
+@media-m: ~"screen and (max-width:767px)"; /*First breakpoint - For small tablet viewports*/
+@media-l: ~"screen and (max-width:1023px)"; /*First breakpoint - For desktop viewports*/
+@media-pgw: ~"screen and (max-width:1270px)"; /*As sides touch the content*/
+@media-xl: ~"screen and (max-width:1600px)"; /*First breakpoint - For desktop viewports*/
+@media-max: ~"screen and (min-width:1601px)"; /*from wide to fully open - desktop viewports*/
+
+@media-s-o: ~"screen and (max-width:480px)"; /*Second breakpoint - For smartphone viewports*/
+@media-m-o: ~"screen and (min-width:481px) and (max-width:767px)"; /*First breakpoint - For small tablet viewports*/
+@media-l-o: ~"screen and (min-width:768px) and (max-width:1023px)"; /*First breakpoint - For desktop viewports*/
+@media-pgw-o: ~"screen and (min-width:1024px) and (max-width:1270px)"; /*First breakpoint - For desktop viewports*/
+@media-xl-o: ~"screen and (min-width:1271px) and (max-width:1600px)"; /*First breakpoint - For desktop viewports*/
+@media-max-o: ~"screen and (min-width:1601px)"; /*from wide to fully open - desktop viewports*/
+
+/*============================= Mixins =============================*/
+
+.button() {
+	border:0; .btn-padding(); font-weight:bold; .btn-bg(@gry6); position: relative; color: #4b4c4d; border-radius: @radius-s; display: inline-block; margin-bottom: 0; font-size: 14px; line-height: 20px; text-align: center; vertical-align: middle; cursor: pointer; .user-select(none); *zoom:1;
+    -webkit-backface-visibility: hidden; /* fix for OS: Android 4.4.2 - Browser: Internet v 4.4.2-N7100 (Samsung Galaxy Note) */
+	&:hover, &:active, &:focus {color:inherit}
+	&:active, &:focus {top:1px}
+}
+
+/*Button color and shadow*/
+.btn-bg(@val) { background-color: @val; .box-shadow(inset 0 -2px 0 darken(@val, 12%));
+	&:hover, &:active, &:focus { background-color: lighten(@val, 5%); }
+	&:active, &:focus { .box-shadow(inset 0 -1px 0 darken(@val, 10%)); background-color: darken(@val, 1%);}
+}
+
+.btn-bg-light(@val) { background-color: @val; .box-shadow(inset 0 -2px 0 darken(@val, 20%));
+	&:hover, &:active, &:focus { background-color: darken(@val, 5%); .box-shadow(inset 0 -2px 0 darken(@val, 30%)) }
+	&:active, &:focus { .box-shadow(inset 0 -1px 0 darken(@val, 30%)); background-color: darken(@val, 1%);}
+}
+
+.btn-bg-ie(@val) { background-color: @val; border-bottom: 2px solid darken(@val, 10%);
+	&:hover, &:active, &:focus { background-color: lighten(@val, 5%); }
+	&:active, &:focus { border-color: transparent;background-color: darken(@val, 1%);}
+}
+
+@btnPriBg: @grn2;
+@btnSecBg: @gry3;
+@btnDarkBg: @gry1;
+@btnLightBg: #fff;
+@btnErrBg: #da4f49;
+@btnFbBg: #6087c6;
+@btnPinkBg: @mag1;
+
+
+/*Sash background*/
+.sash-bg(@val) { background-color: @val;
+	&:before {border-right-color: darken(@val, 20%)}
+}
+
+
+
+/* Use these for all left/right selectors/properties and vendor prefixes*/
+
+/*clearfix so doesnt have to go in so much markup - mainly for top level components*/
+.cfix() {*zoom: 1; &:before,&:after {display: table;content: ""; line-height: 0;}&:after {clear: both;}}
+
+/*hide/show*/
+.hide() {display: none ~"!important";}
+.show() {display: block}
+
+/*floats*/
+.float-left() {float:left;}
+.float-right() {float:right;}
+/*clears*/
+.clear-left() {clear:left;}
+.clear-right() {clear:right;}
+/*text-aligns*/
+.text-align-left() {text-align:left;}
+.text-align-right() {text-align:right;}
+/*IE7 hack*/
+.display-inline-block() {display:inline-block; *display:inline; *zoom:1}
+
+/*positioned items - common*/
+.left(@val) {left:@val;}
+.right(@val) {right:@val;}
+
+/*for manually setting LR margin*/
+.margin-left(@val) {margin-left:@val;}
+.margin-right(@val) {margin-right:@val;}
+.margin(@t,@r,@b,@l) {margin:@t @r @b @l;}
+
+/*IE7 Hack for LR margin*/
+.margin-left-ie7(@val) {margin-left:@val;}
+.margin-right-ie7(@val) {margin-right:@val;}
+
+.padding-left(@val) {padding-left:@val;}
+.padding-right(@val) {padding-right:@val;}
+.padding(@t,@r,@b,@l) {padding:@t @r @b @l;}
+
+/*Borders - REMEMBER ONLY NEEDS DOING WHEN VALUES ARE DIFFERENT LTR*/
+/*borders - option1*/
+.border-left(@val) {border-left:@val;}
+.border-right(@val) {border-right:@val;}
+
+/*borders - specified widths option2*/
+.border-width(@t, @r, @b, @l) {border-width:@t @r @b @l;}
+
+/*borders - defining colour*/
+.border-left-color(@val) {border-left-color:@val;}
+.border-right-color(@val) {border-right-color:@val;}
+
+/*border radius*/
+.border-radius(@tl,@tr,@br,@bl) {border-radius:@tl @tr @bl @br;}
+
+/*box sizing*/
+.box-sizing(@val) {-webkit-box-sizing:@val; -moz-box-sizing:@val; box-sizing:@val;}
+
+/*box shadow*/
+.box-shadow(@val) {-webkit-box-shadow:@val; box-shadow:@val}
+.box-shadow(@val, @val2) {-webkit-box-shadow:@val,@val2; box-shadow:@val,@val2}
+.box-shadow(@val, @val2, @val3) {-webkit-box-shadow:@val,@val2,@val3; box-shadow:@val,@val2,@val3}
+
+/*text shadow*/
+.text-shadow(@val) {-webkit-text-shadow: @val; text-shadow: @val}
+.text-shadow(@val, @val2) {-webkit-text-shadow: @val,@val2; text-shadow: @val,@val2}
+.text-shadow(@val, @val2, @val3) {-webkit-text-shadow: @val,@val2,@val3; text-shadow: @val,@val2,@val3}
+
+/*backgrounds*/
+.background-size(@val) {-moz-background-size:@val; -o-background-size:@val; -webkit-background-size:@val; background-size:@val}
+.gradient(@fallback, @startColor, @endColor) { background-color: @fallback; background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); background: -webkit-linear-gradient(top, @startColor, @endColor); background: -moz-linear-gradient(top, @startColor, @endColor); background: -ms-linear-gradient(top, @startColor, @endColor); background: -o-linear-gradient(top, @startColor, @endColor); }
+.gradient(@fallback, @startColor, @startPercent, @endColor, @endPercent) { background-color: @fallback; background: linear-gradient(top, @startColor @startPercent, @endColor @endPercent); background: -o-linear-gradient(top, @startColor @startPercent, @endColor @endPercent); background: -moz-linear-gradient(top, @startColor @startPercent, @endColor @endPercent); background: -webkit-linear-gradient(top, @startColor @startPercent, @endColor @endPercent); background: -ms-linear-gradient(top, @startColor @startPercent, @endColor @endPercent); background: -webkit-gradient(linear,left bottom,left top,color-stop(~"0."@startPercent, @startColor),color-stop(~"0."@endPercent, @endColor));}
+.gradientH(@fallback, @startColor, @endColor) { background-color: @fallback; background: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor)); background: -webkit-linear-gradient(left, @startColor, @endColor); background: -moz-linear-gradient(left, @startColor, @endColor); background: -ms-linear-gradient(left, @startColor, @endColor); background: -o-linear-gradient(left, @startColor, @endColor); }
+
+/*fading*/
+.transition(@val) {-moz-transition:@val; -o-transition:@val; -webkit-transition:@val; transition:@val}
+.transition(@val,@val2) {-moz-transition:@val,@val2; -o-transition:@val,@val2; -webkit-transition:@val,@val2; transition:@val,@val2}
+
+/*motion*/
+.transform(@val) {-webkit-transform:@val; -moz-transform:@val; -o-transform:@val; -ms-transform:@val; transform:@val}
+
+/*animations*/
+.animation(@val) {-webkit-animation:@val; -moz-animation:@val; -o-animation:@val; animation:@val}
+/*animation properties*/
+.animation-name(@val) {-webkit-animation-name:@val; -moz-animation-name:@val; -o-animation-name:@val; animation-name:@val;}
+.animation-fill-mode(@val) {-webkit-animation-fill-mode:@val; -moz-animation-fill-mode:@val; -o-animation-fill-mode:@val; animation-fill-mode:@val;}
+.animation-duration(@val) {-webkit-animation-duration:@val; -moz-animation-duration:@val; -o-animation-duration:@val; animation-duration:@val;}
+.animation-delay(@val) {-webkit-animation-delay:@val; -moz-animation-delay:@val; -o-animation-delay:@val; animation-delay:@val;}
+
+
+.banner-r.bounce-in { -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; -webkit-animation-delay: 1s; animation-delay: 1s; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-name: bounceInRight; animation-name: bounceInRight; }
+
+/*selectable stuffs*/
+.user-select(@val) {-webkit-touch-callout:@val; -webkit-user-select:@val; -khtml-user-select: @val; -moz-user-select: @val; -ms-user-select: @val; user-select: @val; -ms-touch-action: @val;}
+
+/*opacity*/
+.opacity(@val) {
+  opacity: @val;
+  @opperc: @val * 100;
+  filter: ~"alpha(opacity=@{opperc})";
+}
+
+/*Placeholder colour*/
+.placeholdercolor(@val) {
+    &::-webkit-input-placeholder {color: @val;}
+    &:-moz-placeholder {color: @val;}
+    &::-moz-placeholder {color: @val;}
+    &:-ms-input-placeholder {color: @val;}
+}
+
+/*============================= Font Mixins =============================*/
+
+.icon(@val) {
+    &:before {
+        content: "\@{val}";
+        .iconfont();
+    }
+}
+
+/*Font Icons to work in IE7*/
+.icon-ie(@val) {
+    *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x@{val};')";
+}
+
+/*So font icons can be used in other places other than just in icon classes*/
+.iconfont() {font-family: 'goicons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+
+.webfont() {font-family: 'foundry', 'Helvetica Neue',Arial,sans-serif; -webkit-font-smoothing: antialiased;}
+
+/* default cobrand values */
+@cbLogoHeight: 43px;
+@cbTagSize:21px;
+@cbHdrBgColor: #fff;
+@cbTagColor: @gry1;
+
+
+/*============================= *Flexbox!!* =============================*/
+
+.flex-display(@display: flex) { display: -webkit-box; display: ~"-webkit-@{display}"; display: ~"-moz-@{display}"; display: ~"-ms-@{display}box"; display: ~"-ms-@{display}"; display: @display; }
+.flex(@columns: initial) { -webkit-flex: @columns; -moz-flex: @columns; -ms-flex: @columns; flex: @columns; }
+.flex-direction(@direction: row) { -webkit-flex-direction: @direction; -moz-flex-direction: @direction; -ms-flex-direction: @direction; flex-direction: @direction; }
+.flex-wrap(@wrap: nowrap) { -webkit-flex-wrap: @wrap; -moz-flex-wrap: @wrap; -ms-flex-wrap: @wrap; flex-wrap: @wrap; }
+.flex-flow(@flow) { -webkit-flex-flow: @flow; -moz-flex-flow: @flow; -ms-flex-flow: @flow; flex-flow: @flow; }
+.flex-order(@order: 0) { -webkit-order: @order; -moz-order: @order; -ms-order: @order; order: @order; }
+.flex-grow(@grow: 0) { -webkit-box-flex: @grow; -ms-flex-positive: @grow; -webkit-flex-grow: @grow; -moz-flex-grow: @grow; -ms-flex-grow: @grow; flex-grow: @grow; }
+.flex-shrink(@shrink: 1) { -webkit-flex-shrink: @shrink; -moz-flex-shrink: @shrink; -ms-flex-negative: @shrink; -ms-flex-shrink: @shrink; flex-shrink: @shrink; }
+.flex-basis(@width: auto) {  -ms-flex-preferred-size: @width; -webkit-flex-basis: @width; -moz-flex-basis: @width; -ms-flex-basis: @width; flex-basis: @width; }
+.justify-content(@justify: flex-start) { -webkit-justify-content: @justify; -moz-justify-content: @justify; -ms-justify-content: @justify; justify-content: @justify; }
+.align-content(@align: stretch) { -webkit-align-content: @align; -moz-align-content: @align; -ms-align-content: @align; align-content: @align; }
+.align-items(@align: stretch) { -webkit-align-items: @align; -moz-align-items: @align; -ms-align-items: @align; align-items: @align; }
+.align-self(@align: auto) { -webkit-align-self: @align; -moz-align-self: @align; -ms-align-self: @align; align-self: @align; }
+
+/*============================= Tablet Specific Variables/Mixins =============================*/
+
+/*Scaffolding*/
+@bodyBackground:@gry9;
+@hdrBackground:@gry1;
+@hdrHeight: 60px;
+@hdrShadow:none;
+@menuLinkColor: #fff;
+@menuLinkActiveBg:#fff;
+@menuLinkActvieColor:@gry2;
+@menuLiHoverBg: @gry1;
+@menuLIHoverLinkColor: #fff;
+@pgwMaxWidth:1200px;
+@textColor:@gry1;
+@ftrColor:@gry3;
+@ftrMuteColor:@gry5;
+@ftrColorHov:darken(@ftrColor, 10%);
+@ftrMuteColorHov:darken(@ftrMuteColor, 10%);
+/*Grids*/
+.grid-table-bg() {background: #fff; border-radius: @radius-m; border: @border-solid}
+@grid-td-padding: @xs @s @xs @xs;
+.grid-td-border() {border-bottom: @border-solid;}
+.grid-zebra() {background: @gry9;}
+.grid-th-padding() {padding:@s @xs}
+.grid-pad-right() {.padding-right(12px)}
+
+.grid-list-td-padding() {padding:@m @s;}
+.grid-list-td-border() {border-top: none; /*box-shadow: inset 0 7px 0px @gry6, 0 -7px 0 @gry6 Testing tablet spacing */}
+
+/*Buttons*/
+.btn-padding() {padding:8px 16px}
+
+/*#search*/
+@leftPadSearch: 35px;
+@margTopSearch:0;
+.search-icon-size() {font-size:22px; top:8px; left:9px}
+@search-close-pos:0;
+@searchShadow: rgba(0,0,0,.4);
+@searchResultsPos:absolute;
+@searchResultsMargin: 0;
+
+/*Forms*/
+.input-background-color() {background-color: #fff}
+@form-row-padding:4px 2%;
+@errmargin:0 2%;
+@labelFontSize: 16px;
+@labelforFontSize: 14px;
+@inputlabel: inline-block;
+
+/*box*/
+.border-edge() { .box-shadow(1px 2px 1px @gry6, -1px -1px 0 @gry8)}
+@tiletileMarg:0;
+.tilePressSel() {border:0;background-color:@blu7; .box-shadow(0 0 0 5px @blu4)}
+
+/*Round numbers*/
+@step-number-border: 4px;
+@step-number-padding: 3px 9px;
+
+/*Accordian*/
+.accordian-container() {border-bottom:@border-m; border-left:@border-m;border-right:@border-m}
+
+/*Breadcrumb*/
+@breadcrumb-spacing: @m 0;
+@breadcrumb-margin-right: @l;
+@breadcrumb-dash: -@m;

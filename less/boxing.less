@@ -1,0 +1,134 @@
+﻿/*-Tile-*/
+/*Need to add ability to bg icon / multi-line ...    */
+
+.tile {background-color: #fff; .border-edge; padding:@l; border-radius: @radius-s;
+	@media @media-m {padding: 12px 9px 14px}
+}
+
+div.mzodal div.tile {box-shadow: 0px 0px 0px 0px; border-width: 0; }
+
+.tile.tbd {border-top:none;.border-radius(0,0,@radius-m,@radius-m); .padding-left(74px); background: #fff url(/img/assets/icons/ticket_guarantee_45x47.gif) no-repeat 15px 15px}
+
+.tile .tile {border:2px solid @gry6; .box-shadow(none); border-radius:0;
+	@media @media-m {padding: 12px}
+}
+
+//removed padding in the CSS above as it doubles up on modals
+// #modal .frame > .tile { padding:0; }
+
+.tile.tile0 .tile {.tile; border:none;}
+
+/*When you want just the borders of tile*/
+.edge {.border-edge()}
+
+/*clickable tiles*/
+
+.tile.press {cursor:pointer; background-color:@gry8; border-radius:@radius-m; border:0; .box-shadow(0 4px 0 darken(@gry8, 10%)); position:relative}
+.tile.press:hover {background-color:@gry9}
+.tile.press:active {top: 2px; background-color:@gry7; .box-shadow(0 1px 0 darken(@gry8, 10%))}
+.tile.press.sel {.tilePressSel}
+.tile.r.sel {border-color:@blu1; background-color:@blu7}
+.tile.press.sel:active {top:0}
+/* before shim to counteract button jump */
+.tile.press:before {height: 0px; width: 100%; content: ""; positition: inherit; position: absolute; top: 0px; .left(0); }
+.tile.press:active:before {height: 2px; top: -2px;}
+
+/*
+.tile.press {cursor:pointer; background-color:@gry8; border-radius:@radius-m; border:0; border-bottom: 4px solid darken(@gry8, 10%); position:relative}
+.tile.press:hover {background-color:@gry9}
+.tile.press:active {top: 1px; background-color:@gry7; border-bottom-width: 1px}
+.tile.press.sel {border:0;background-color:@blu7; .box-shadow(0 0 0 5px @blu4);}
+.tile.press.sel:active {top:0}*/
+
+/*.tile * {vertical-align: middle}*/
+
+/* pipeline styles */
+.radio-box.tile.sel {border-color:@blu4; background-color:@blu7}
+
+.tile+.tile {margin-top:@tiletileMarg}
+
+.tile.r, .tile .r, .arw {.icon('f054'); position:relative; font-size:16px}
+.tile.r:before, .tile .r:before, .arw:before {.iconfont; position:absolute; .right(10px); top:50%; margin-top:-7px; color:@gry5}
+
+.tile.sq {border-radius:0}
+/*div.tile:active {background-color:#efefef;}*/
+
+.info-bnr {background:@blu6; border-color:@blu5; color:@blu1 / 1.1; padding:@m;  text-align:center; margin-bottom:@m;}
+
+.tile.error, .tile.note, .tile.info, .tile.success {border-width:1px; box-shadow:none !important;border-style:solid; }
+.tile.error a, .tile.note a, .tile.info a, .tile.success a {background:#fff; padding: 2px 4px;.transition(background 0.2s ease)}
+.tile.error a:hover, .tile.note a:hover, .tile.info a:hover, .tile.success a:hover {background:rgba(0,0,0,0.4);}
+.tile.error {background: @red1; border-color:@red1; color: #fff;}
+.tile.error a {   color: @red1}
+.tile.note {background: @org1; border-color:#F0AD4E / 1.1; color: #fff;}
+.tile.note a {   color: @org1}
+.tile.info {background: @blu2; border-color:@blu2;color: #fff}
+.tile.info a {   color: @blu2}
+.tile.success {background: @grn3; border-color:@grn3;color: #fff;}
+.tile.success a {   color: @grn3}
+
+/* close button */
+.tile.canclose { .padding-right(35px); }
+.tile.canclose > .close { color: inherit; .float-right(); font-size: @l; line-height: 1; position: relative; .right(-21px); top: -2px; }
+/* using <button> for the close button is recommended - these styles get rid of button's default styles */
+.tile.canclose > button.close { -webkit-appearance: none; background: 0 0; border: 0; cursor: pointer; padding: 0; }
+
+/*.tile.error, .tile.note, .tile.info, .tile.success {border-width:1px; box-shadow:none !important; border:none; color: rgba(0,0,0,0.55);}
+.tile.error a, .tile.note a, .tile.info a, .tile.success a {background: rgba(0,0,0,0.4); padding: 2px 4px;.transition(background 0.2s ease)}
+.tile.error a:hover, .tile.note a:hover, .tile.info a:hover, .tile.success a:hover {background:#fff; color: @gry3 !important}
+.tile.error {background: #eb8686}
+.tile.error a {   color: #eb8686}
+.tile.note {background: @yel5}
+.tile.note a {   color: @yel5 !important}
+.tile.info {background: @blu4}
+.tile.info a {   color: @blu4 !important}
+.tile.success {background: @grn4}
+.tile.success a {   color: @grn4 !important}*/
+
+#filter .i-cog {font-size:28px; color:@gry4; display:block; text-align:center; padding-top:6px}
+
+.tile .icon {.padding-left(34px)}
+
+.icon {background-image:url(/img/mobile/common/icon_sprite.png);background-repeat:no-repeat;display:block;overflow:hidden;text-indent:-99999px;}
+.iAdd {width:20px;height:20px;.padding-left(10px)}
+.iPDF, .iUPS, .iFedEx {display:inline-block}
+.iPDF {background-position:-22px 0px;width:43px;height:41px} 
+.iUPS {background-position:-67px 0px;width:34px;height:41px} 
+.iFedEx {background-position:-108px 0px;width:79px;height:30px}
+.iGlobe {background-position:-186px 0px;height:25px;width:25px}
+.iCog { background-position:-217px 0px;height:26px;width:26px}
+
+/*for tile groups - can add optional arrow per row '.r' can make smaller rows '.s'*/
+
+ul.tile {list-style-type:none;.margin-left(0);padding:0}
+ul.tile li {border-top:@border-solid}
+ul.tile li:first-child {border-top:none;}
+//for primary nav item
+ul.tile li.pri {background:@gry2;}
+ul.tile li.pri a {color:#fff; font-weight:bold;}
+ul.tile li.pri a:hover {background-color:@gry1}
+ul.tile a { display:block;padding:@m @l;color:@gry1}
+ul.tile a:hover {background-color:@gry8}
+ul.tile .act a {background: @gry4; color:#fff}
+
+ul.tile li.s a {padding:@xs @s}
+
+ul.tile ul {margin-bottom:@m}
+ul.tile ul li {text-indent:30px;border-bottom:0}
+ul.tile ul li a {padding:@xs 0}
+
+.tile.l {padding-top:11px;padding-bottom:11px}
+/*.tile td {border-bottom:1px solid #dfdfe0; padding: 8px; height: 32px;}*/
+
+/*
+    think this is for mobile may need to move it
+    .tile tr td:last-child {.padding-right(20px)}
+.tile tr:last-child td {border-bottom:0}*/
+
+/*2 parter - 1 part for hover second for content <eleemnet><content></content><element>*/
+.boxhov  {cursor:pointer; position:relative;}
+.boxhovcontent {display:none; background-color:#fff; padding:@l; position:absolute; z-index:11; .cfix(); top:100%; border:10px solid @gry6; /*border-top:none;*/ .box-shadow(0 @xs @s rgba(0,0,0,.4));}
+.boxhovcontent:before {content:""; width:0; height:0; border:6px solid transparent; border-bottom-color:@gry6; position:absolute; top: -22px;  .right(6px)}
+.boxhovcontent.left:before {.left(6px)}
+.boxhovcontent.right {.right(0)} .boxhovcontent.left {.left(0)}
+.boxhov:hover .boxhovcontent, .boxhovcontent:hover {display:block;}

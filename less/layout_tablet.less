@@ -1,0 +1,162 @@
+/*-LayoutTabletB-*/
+
+
+#content {padding-bottom:@xxxl}
+
+/* This is used for creating a longer footer that extends below the page if content is short...*/
+.wrap {min-height:50%; height:auto !important; overflow:hidden}
+
+/*Page Width*/
+.pg, .pgw {margin:0 auto; .cfix(); *width: 1020px; *padding: 0 @xs;}
+
+
+.pg { padding: 0 4%; .transition(padding .3s); @media @media-pgw {padding:0 2%;}}
+.pgw {max-width:@pgwMaxWidth;  padding: 0 2%;}
+.pgp0 {margin-left:-2% !important; margin-right:-2% !important}
+
+
+/*Header*/
+#hdr {.cfix(); height:@hdrHeight; background:@hdrBackground; border-bottom:none;}
+#l1 {.cfix(); .float-left(); top:10px; font-size:37px; letter-spacing:-1.5px;display:block; color:#fff;position:relative; z-index:9999}
+#l1 .i-go {color:@grn2}
+#l1 .i-go+.i-go {color:#fff}
+
+/*Home Header*/
+.v-home #hdr {background:transparent}
+#hdr a {color:#fff;}
+#hdrLogin {text-align:center;}
+#hdrLogin .login { .border-right(@border-solid); .padding-right(@xl);
+    @media @media-m { border-bottom:@border-solid; padding-bottom:@xl; .border-right(0); .padding-right(0); }
+}
+#hdrLogin .signup { .padding-left(@xl);
+    @media @media-m { .padding-left(0); ul {list-style:none; .padding-left(0);} }
+}
+#hdrLinks { position:absolute; right:0; top:0; width:100%; }
+
+/* All dropdowns */
+/*a[data-menu].active:after {position:absolute; content:''; bottom:-24px; left:50%; margin-left:-18px; height:1px; width:1px; border:18px solid #fff; border-left-color:transparent; border-right-color:transparent; border-top-color:transparent}*/
+
+/*Dropdowns in header menu only*/
+#menu {.float-right(); .user-select(none);}
+#menu a {color:@menuLinkColor; /*line-height:@hdrHeight;*/ vertical-align:middle; cursor:pointer;position:relative;}
+#menu a.active { color:@blu2;}
+// arrow
+#menu a.active:before {position:absolute; content:''; bottom:-24px; left:50%; margin-left:-18px; height:1px; width:1px; border:18px solid #fff; border-left-color:transparent; border-right-color:transparent; border-top-color:transparent}
+#menu > li:hover a.active {color:@blu3;}
+#menu a.active .i-sortd:before {content:'\f0d8'}
+#menu > li {.float-left(); height:@hdrHeight - 3; line-height:@hdrHeight - 3; .margin-right(@l)}
+#menu > li:last-child {.margin-right(0)}
+#menu > li:hover {/*background:@menuLiHoverBg;*/}
+#menu > li a:hover { /*color:@menuLIHoverLinkColor;*/color:@blu3;}
+#menu a.btn, #menu a.btn:hover {text-shadow:none !important; color:#fff}
+    /*Home menu drop downs*/
+    .v-home #menu a {color:#fff}
+    .v-home #menu a.active {text-shadow:0 0 6px #000; color:@blu3}
+    .v-home #menu > li a:hover {text-shadow:0 0 9px #000; color:@blu3}
+    .v-home #menu > li:hover a.active {text-shadow:0 0 6px #000}
+/*Menu Header Dropdowns*/
+#hdrDropdowns {position:relative; z-index:10; .clear-left(); top:-6px;}
+.hdd, .chdd {padding:@s @m; position:absolute;background-color:white; .box-shadow(0 @xs @s rgba(0,0,0,.4)); min-width:300px; max-width:1000px; border:@border-solid; border-top:none;}
+.hdd ul.hdd-list li a {display:block; color:@gry4; padding:@s @xs; cursor:pointer; border-top:@border-solid;.text-shadow(0 1px 0 #fff)}
+.hdd ul.hdd-list li:first-child a {border-top:none;}
+.hdd ul.hdd-list li a:hover {background:@gry7;color:@gry3;}
+.hdd ul.hdd-list li.act a {background:@gry4;color:#fff;.text-shadow(none)}
+.hdd ul.hdd-list li a span {display:inline-block; width:38px; color:@gry2}
+.hdd ul.hdd-list li.act a span {color:#fff;}
+    /*Home Menu Header Dropdowns*/
+    .v-home .hdd {border:none}
+
+/* Search Layout */
+#srchWrp {margin-top:10px}
+#srch #loading {z-index: 3;top: 8px;width: auto;left: 8px;margin-left: 0;position: absolute;padding: 0px 0;}
+#srch #loading .spin {width:20px; height:20px; margin:0 auto; border-top: 4px solid transparent; .border-right(4px solid transparent); border-bottom: 4px solid @gry3; .border-left(4px solid @gry3);}
+#srch .i-search {top:7px !important;}
+#srch .fg {margin-bottom:0}
+#search {border-radius:2px;}
+
+#srchWrp {.float-left(); .margin-left(@l); position:relative; z-index:999}
+#srchWrp {width:350px; .transition(width .3s);
+	/*@media @media-m {width:125px}*/
+}
+#srchWrp.srchAct {width:650px; @media @media-l {width:550px}}
+
+
+/*Categories / Primanry navigation*/
+.prinav {.cfix(); @media @media-l{text-align:center;} @media @media-pgw{}}
+.prinav li {display:inline-block; margin-bottom:@s; .transition(all 0.2s); .margin-right(@l); font-size:28px; letter-spacing:-1px; @media @media-pgw {.margin-right(@m);} @media @media-l{font-size:24px !important} @media @media-m {.margin-right(@xs); .margin-left(@xs);}}
+.prinav a {display:block; color:#fff; padding:@s @xs; position:relative; z-index:0;}
+.prinav a:before {position:absolute;content: ''; width: 100%; z-index:-1; height: 3px; bottom:0; left: 0; background: @gry2; .transition(all 0.2s)}
+.prinav a:hover:before, .prinav a.drop-act:before {height: 100%;}
+.prinav .cat3 a:before {background: @mag3}/*concerts*/
+.prinav .cat2 a:before {background: @blu3}/*sports*/
+.prinav .cat1 a:before {background: @yel2;}/*theatre*/ .prinav .cat1 a:hover, .prinav .cat1 a.drop-act {color:@gry1}
+.prinav .cat1023 a:before {background: @grn2}/*fest*/
+.chdd ol { padding-left:1.5em; margin:0 0 @s; }
+
+/*Footer*/
+#ftr {background:@gry5; min-height:300px; .webfont(); font-size:16px; padding-top:60px;}
+#ftr, #ftr a, .regionalTab a {color:@gry2;}
+#ftrSocial, #ftrAdmin, #ftrHot {padding-bottom:@xl}
+
+    /*Regional*/
+    /*.regionalOpts li {display:block} ps mbm radiuss pointer*/
+    .regionals li {position:relative; font-weight:bold; border:@border-m; background:#fff; padding:@s; .padding-right(@xl); margin-bottom:@m; cursor:pointer; border-radius: @radius-s}
+    .regionals li:after {position:absolute; right:@s; top:46%; border:5px solid transparent; border-top-color:@gry3; content:""; width:0; height:0}
+    .regionals li span {display:inline-block; font-weight:normal; .padding-left(@xxs)}
+    .regionalModal {.webfont();}
+    .regionalNav.tabs a {font-weight:normal}
+    .regionalTab a {display:block; padding: @xxs 0}
+    .regionalTab a:hover {text-decoration:underline}
+    .regionalTab .act {background:@gry7}
+    .vt1 .regionals {color:@gry2}/*DELTE ME WHEN NO DESKTOP ANY MORE*/
+    /*added float and 1px padding to create hanging indent on whole LI when wrapping*/
+    #currencyDropdown li span {.float-left(); padding-bottom:1px;min-width:35px; display:inline-block; font-weight:bold; text-align:center; .margin-right(@xs)}
+    /*Geoip regional overrides*/
+    #js-geoIpContainer .regionals {color:@gry2 !important;}
+    #js-geoIpContainer .regionals li {margin-bottom:@s;}
+        /*Social*/
+        #ftrSocial li { display:inline-block; .margin-right(@xs) }
+        #ftrSocial a {display:inline-block; border-radius:4px; background:@gry2; height:32px; width:32px; padding-top:3px; line-height:30px; text-align:center;}
+        #ftrSocial a:hover {background:@gry1}
+        #ftrSocial i {color:@gry5}
+    /*About | Hotlist*/
+    #ftrAdmin li, #ftrHot li {white-space:nowrap; overflow:hidden; text-overflow: ellipsis; padding:@xxs @m; .padding-left(0) /*@media @media-pgw {width:25%;} @media @media-l {width:33%;} @media @media-m {width:50%;} @media @media-s {width:100%; text-align:center}*/}
+    #ftrAdmin a:hover, #ftrHot a:hover {text-decoration:underline}
+    /*T&C's | ClientSwitch*/
+    #ftrClientSwitch {padding-bottom:@m}
+    #ftrTCs, #ftrClientSwitch {color:#fff; font-size:14px}
+    #ftrTCs a, #ftrClientSwitch a {color:#fff; text-decoration:underline}
+    #ftrTCs a:hover, #ftrClientSwitch a:hover {text-shadow: 0 1px 0 @gry4}
+    /*Page id*/
+    #ftrPgID {padding:@xxxl 0; color:@gry5}
+    .vt2 #ftrPgID {color:@gry9}
+
+/*Geo Styling*/
+#js-geoIpContainer .btn {letter-spacing:-1px}
+
+
+/*Pogress Bar - could be seperated into a file*/
+.pb {position:relative; .user-select(none); margin-top:@l}
+.pb #pbb {height:5px;background:@gry6; margin: 0 auto; position:relative; bottom:39px; width:85%;
+	@media @media-m {bottom:37px; height:3px}
+}
+.pb ul {width:100%; position:relative; z-index:5;text-align: justify;font-size: 0.1px;}
+.pb ul:after{content: '';display: inline-block;width: 100%}
+.pb li {width:14%; text-align:center; color:@gry5; position:relative; z-index:4;.display-inline-block();line-height:1.2;}
+.pb li .stepName {display:inline-block; font-size:13px; margin-bottom:@s;vertical-align:bottom; text-transform:uppercase;
+	@media @media-m {font-size:11px}
+	@media @media-s {display:none}
+}
+.pb li .step {font-size:16px;font-weight:bold; display:block; .clear-left(); margin:0 auto; width:33px; height:32px; padding:3px 1px 1px 0px; background-color:#fff; border:4px solid @gry6; border-radius:50px;
+	@media @media-m {width:25px; height:25px; border:0;background-color:@gry6; color:#fff}
+}
+
+.pb li.act .stepName {color:@grn1}
+.pb li.act .step {color:@grn2; border-color:@grn2;
+	@media @media-m {background-color:@grn2; color:#fff}
+}
+
+.pb li.past .stepName{color:@gry2}
+.pb li.past .step {border-color:@gry3; color:@gry2;
+	@media @media-m {background-color:@gry4; color:#fff}
+}

@@ -1,0 +1,336 @@
+﻿/*-Titles-*/
+/*-Text-*/
+.caps { text-transform: uppercase; }
+.t-u { text-decoration: underline; }
+.t-b { font-weight: bold; }
+.t-i { font-style: italic; }
+.t-s { text-decoration:line-through; }
+/*Turn off neg letter-spacing*/
+.ls-1{letter-spacing:-1px}
+.ls0{letter-spacing:0 !important}
+
+/*header*/
+.h { margin: 0; font-weight: 700; line-height: 1; color: inherit; /*.text-shadow(0 1px 0 rgba(255, 255, 255, 0.6))*/ }
+.t { margin: 0; font-weight: 400; line-height: 1; /*.text-shadow(0 1px 0 rgba(255, 255, 255, 0.6))*/ }
+.form li div > .t { margin-top: 0; }
+/*Drop shadow light*/                           /*Drop shadow dark*/                        
+.dsl1 {.text-shadow(0 1px rgba(255,255,255,.8))}.dsd1 {.text-shadow(0 1px rgba(0,0,0,.8))}   
+.dsl2 {.text-shadow(0 1px rgba(255,255,255,.6))}.dsd2 {.text-shadow(0 1px rgba(0,0,0,.6))}  
+.dsl3 {.text-shadow(0 1px rgba(255,255,255,.3))}.dsd3 {.text-shadow(0 1px rgba(0,0,0,.3))}  
+.dsl4 {.text-shadow(0 1px rgba(255,255,255,.8))}.dsd4 {.text-shadow(0 1px rgba(0,0,0,.8))}  
+/*for form text under an input*/
+.h.xxxl small, .h.xxl small, .h.xl small, .h.l small, .h.m small, .h.s small, .h.xs small { font-weight: normal; line-height: 1; color: #999999; }
+
+/* Font sizes change on smaller screens - screenwidth.less*/
+.h.xxxl, .t.xxxl { font-size: 48px; line-height: 1.1; letter-spacing: -1px;}
+.h.xxl, .t.xxl { font-size: @xxl; line-height: 1.1; letter-spacing: -1px; }
+.h.xl, .t.xl { font-size: 30px; line-height: 1.1; letter-spacing: -1px; }
+.h.l, .t.l { font-size: @xl; line-height: 1.2; letter-spacing: -1px; }
+.h.m, .t.m { font-size: @l; line-height: 1.3}
+.h.s, .t.s { font-size: 16px; line-height: 1.3}
+.h.xs, .t.xs { font-size: 14px; line-height: 1.4}
+.h.xxs, .t.xxs { font-size: 12px; line-height: 1.4}
+.h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.4}
+
+.h.xxl small, .t.xxl small { font-size: @xl; }
+.h.xl small, .t.xl small { font-size: @l; }
+.h.l small, .t.l small { font-size: 14px; }
+.h.m small, .t.m small { font-size: 14px; }
+
+@media @media-max {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.2 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.3 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.3 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.4 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.4 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.4}
+}
+
+@media @media-xl {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.2 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.3 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.3 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.4 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.4 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.4}
+}
+
+@media @media-pgw {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.2 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.3 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.3 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.4 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.4 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.4}
+}
+
+@media @media-l {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.2 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.3 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.3 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.4 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.4 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.4}
+
+    .h.xxxl-l, .t.xxxl-l { font-size: 48px !important; line-height: 1.1 !important; letter-spacing: -2px !important;}
+    .h.xxl-l, .t.xxl-l { font-size: @xxl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.xl-l, .t.xl-l { font-size: 30px !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.l-l, .t.l-l { font-size: @xl !important; line-height: 1.2 !important; letter-spacing: -2px !important; }
+    .h.m-l, .t.m-l { font-size: @l !important; line-height: 1.3 !important}
+    .h.s-l, .t.s-l { font-size: 16px !important; line-height: 1.3 !important}
+    .h.xs-l, .t.xs-l { font-size: 14px !important; line-height: 1.4 !important}
+    .h.xxs-l, .t.xxs-l { font-size: 12px !important; line-height: 1.4 !important}
+    .h.xxxs-l, .t.xxxs-l { font-size: 10px; line-height: 1.4}
+}
+
+@media @media-m {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.1 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.1 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.2 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.2 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.2}
+
+    .h.xxxl-m, .t.xxxl-m { font-size: 48px !important; line-height: 1 !important; letter-spacing: -2px !important;}
+    .h.xxl-m, .t.xxl-m { font-size: @xxl !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.xl-m, .t.xl-m { font-size: 30px !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.l-m, .t.l-m { font-size: @xl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.m-m, .t.m-m { font-size: @l !important; line-height: 1.1 !important}
+    .h.s-m, .t.s-m { font-size: 16px !important; line-height: 1.1 !important}
+    .h.xs-m, .t.xs-m { font-size: 14px !important; line-height: 1.2 !important}
+    .h.xxs-m, .t.xxs-m { font-size: 12px !important; line-height: 1.2 !important}
+    .h.xxxs-m, .t.xxxs-m { font-size: 10px; line-height: 1.2}
+}
+
+@media @media-s {
+    .h.xxxl, .t.xxxl { font-size: 48px !important; line-height: 1 !important; letter-spacing: -2px !important;}
+    .h.xxl, .t.xxl { font-size: @xxl !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.xl, .t.xl { font-size: 30px !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.l, .t.l { font-size: @xl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.m, .t.m { font-size: @l !important; line-height: 1.1 !important}
+    .h.s, .t.s { font-size: 16px !important; line-height: 1.1 !important}
+    .h.xs, .t.xs { font-size: 14px !important; line-height: 1.2 !important}
+    .h.xxs, .t.xxs { font-size: 12px !important; line-height: 1.2 !important}
+    .h.xxxs, .t.xxxs { font-size: 10px; line-height: 1.2}
+
+    .h.xxxl-s, .t.xxxl-s { font-size: 48px !important; line-height: 1 !important; letter-spacing: -2px !important;}
+    .h.xxl-s, .t.xxl-s { font-size: @xxl !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.xl-s, .t.xl-s { font-size: 30px !important; line-height: 1 !important; letter-spacing: -2px !important; }
+    .h.l-s, .t.l-s { font-size: @xl !important; line-height: 1.1 !important; letter-spacing: -2px !important; }
+    .h.m-s, .t.m-s { font-size: @l !important; line-height: 1.1 !important}
+    .h.s-s, .t.s-s { font-size: 16px !important; line-height: 1.1 !important}
+    .h.xs-s, .t.xs-s { font-size: 14px !important; line-height: 1.2 !important}
+    .h.xxs-s, .t.xxs-s { font-size: 12px !important; line-height: 1.2 !important}
+    .h.xxxs-s, .t.xxxs-s { font-size: 10px; line-height: 1.2}
+}
+/*Font Sizes*/
+.fs5{font-size:  5px}
+.fs6{font-size:  @xs}
+.fs7{font-size:  7px}
+.fs8{font-size:  8px}
+.fs9{font-size:  @s}
+.fs10{font-size: 10px}
+.fs12{font-size: @m}
+.fs14{font-size: 14px}
+.fs15{font-size: 15px}
+.fs16{font-size: 16px}
+.fs18{font-size: @l}
+.fs20{font-size: 20px}
+.fs25{font-size: 25px}
+.fs30{font-size: 30px}
+.fs35{font-size: 35px}
+.fs40{font-size: 40px}
+.fs45{font-size: 45px}
+.fs50{font-size: 50px}
+.fs55{font-size: 55px}
+.fs60{font-size: 60px}
+.fs70{font-size: 70px}
+.fs80{font-size: 80px}
+.fs90{font-size: 90px}
+.fs100{font-size: 100px}
+
+/* Title Styling */ 
+.titbox, .titpag {font-weight:bold; line-height:1.2; letter-spacing:-1px}
+/*  Use for all titles associated with tile sections */
+.titbox {font-size:25px; margin-bottom:@xs; .padding-left(@s); .webfont();}
+/*  Use for page titles */
+.titpag {font-size:30px; margin-bottom:@xs+2;
+	@media @media-s {font-size:@xl; margin-bottom:@s}
+}
+.titpag small {font-size:@l; font-weight:normal; letter-spacing:0; color:@gry3}
+
+
+/*bar centered title*/
+.bar { overflow: hidden; text-align: center; display:block; }
+.bar:before, .bar:after { background-color: @gry6; border-bottom:1px solid #fff; content: ""; display: inline-block; height: 2px; position: relative; vertical-align: middle; width: 50%; }
+.bar:before { .right(0.5em); .margin-left(-50%)}
+.bar:after { .left(0.5em); .margin-right(-50%)}
+
+.bar.txtl {.text-align-left()}
+.bar.txtr {.text-align-right()}
+.bar.txtl:after, .bar.txtr:before {width:100%;}
+.bar.txtl:before, .bar.txtr:after {display:none;}
+.bar.txtl:after {.margin-right(-100%);}
+.bar.txtr:before {.margin-left(-100%);}
+
+/*Really?!?!?! - refactor this out (check mobile!)*/
+.dark { color: #fff; }
+
+/*cloud tags - collapses in @small*/
+.cloud li {.webfont(); font-weight:bold; display:inline-block; .margin-right(@m); margin-top:@m; @media @media-s{display:block; margin-top:4px;}}
+.cloud a {display:block; color:@gry1; padding: @xxs @s; border-radius:2px; background:#fff; .transition(all .3s ease); @media @media-s{padding:@xs @s; border-radius:0;}}
+.cloud a:hover {background:rgba(0,0,0,0.2); color:#fff}
+.cloud a.act{background:rgba(0,0,0,0.2); color:#fff}
+
+/*THIS ALL GOT MOVED INTO CONTENT and style sheets (1074677)*/
+/*@font-face {
+       font-family: 'foundry';
+       src:url('/img/fonts/foundrysterling-book.eot');
+       src:url('/img/fonts/foundrysterling-book.svg#foundrysterling-bookregular') format('svg'),
+              url('/img/fonts/foundrysterling-book.eot?#iefix') format('embedded-opentype'),
+              url('/img/fonts/foundrysterling-book.woff') format('woff'),
+              url('/img/fonts/foundrysterling-book.ttf') format('truetype');             
+       font-weight: 400;
+       font-style: normal;
+}
+
+NO WEBFONT												
+1025 Arabic	
+1028 Traditional Chinese (TW)
+1032 Greek	
+1037 Hebrew	
+1041 Japanese	
+1042 Korean	
+1049 Russian	
+2052 Simplified Chinese	
+3076 Traditional Chinese (HK)
+												
+
+Has Web Font
+cz	1029 Czech
+de	1031 German
+fr	1036 French
+it	1040 Italian
+pl	1045 Polish
+se	1053 Swedish
+tr	1055 Turkish
+id	1057 Bahasa Indonesia
+
+Has webfont from group
+latinstandard (1030, 1043, 1044, 1046, 2070)			latinstandard (danish, dutch, norwegian, portuguese bazil, portuguese)
+latinextreme (1035, 1051, 1062)							latinextreme (finnish, slovak, latvian)
+latinwestern (1086)										latinwestern (malay)
+en (1033, 2057, 3081)									en (us, uk, au)
+es (1034, 2058, 9226, 11274)							es (spainish, mexican, colombia, argentina)*/
+
+
+/*icon font-face declaration*/
+@font-face {
+       font-family: 'goicons';
+       src:url('/img/fonts/goicons.eot');
+       src:url('/img/fonts/goicons.eot?#iefix') format('embedded-opentype'),
+        url('/img/fonts/goicons.svg#goicons') format('svg'),
+              url('/img/fonts/goicons.woff') format('woff'),
+              url('/img/fonts/goicons.ttf') format('truetype');             
+       font-weight: normal;
+       font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+    .iconfont(); 
+}
+.i-basket {.icon('e60a')}
+.i-shopping-cart {.icon('f07a')}
+.i-flame {.icon('f0d2')}
+.i-starburst {.icon('e604')}
+.i-graph {.icon('e608')}
+.i-award {.icon('e609')}
+.i-skinny-right {.icon('e603')}
+.i-group {.icon('f0c0')}
+.i-location-area {.icon('e605')}
+.i-skinny-left {.icon('e606')}
+.i-stadium {.icon('e607')}
+.i-user {.icon('e007')}
+.i-arrow-right {.icon('e000')}
+.i-arrow-left {.icon('e001')}
+.i-arrow-up {.icon('e002')}
+.i-location {.icon('e003')}
+.i-star {.icon('e004')}
+.i-mail {.icon('e005')}
+.i-checkbox-unchecked {.icon('e006')}
+.i-checkbox-checked {.icon('e008')}
+.i-radio-checked {.icon('e009')}
+.i-radio-unchecked {.icon('e00a')}
+.i-checkbox-partial {.icon('e00b')}
+.i-magnify {.icon('e00c')} .i-zoom-in {.icon('e00c')}
+.i-fixture {.icon('e600')}
+.i-shirt {.icon('e601')}
+.i-banknote {.icon('e602')}
+.i-search {.icon('f002')}
+.i-logo {.icon('f003')}
+.i-th-list {.icon('f00b')}
+.i-ok {.icon('f00c')}
+.i-remove {.icon('f00d')}
+.i-arrow-down {.icon('f00e')}
+.i-cog {.icon('f013')}
+.i-trash {.icon('f014')}
+.i-home {.icon('f015')}
+.i-time {.icon('f017')}
+.i-download-alt {.icon('f019')}
+.i-repeat {.icon('f01e')}
+.i-refresh {.icon('f021')}
+.i-lock {.icon('f023')}
+.i-tag {.icon('f02b')}
+.i-print {.icon('f02f')}
+.i-courier {.icon('f033')}
+.i-via {.icon('f038')}
+.i-go {.icon('f039')}
+.i-ticket {.icon('f03c')}
+.i-pencil {.icon('f040')}
+.i-chevron-left {.icon('f053')}
+.i-chevron-right {.icon('f054')}
+.i-plus-sign {.icon('f055')}
+.i-minus-sign {.icon('f056')}
+.i-remove-sign {.icon('f057')}
+.i-ok-sign {.icon('f058')}
+.i-question-sign {.icon('f059')}
+.i-info-sign {.icon('f05a')}
+.i-plus {.icon('f067')}
+.i-minus {.icon('f068')}
+.i-exclamation-sign {.icon('f06a')}
+.i-warning-sign {.icon('f071')}
+.i-calendar {.icon('f073')}
+.i-comment {.icon('f075')}
+.i-chevron-up {.icon('f077')}
+.i-chevron-down {.icon('f078')}
+.i-signout {.icon('f08b')}
+.i-signin {.icon('f090')}
+.i-upload-alt {.icon('f093')}
+.i-twitter {.icon('f099')}
+.i-facebook {.icon('f09a')}
+.i-rss {.icon('f09e')}
+.i-globe {.icon('f0ac')}
+.i-reorder {.icon('f0c9')}
+.i-google-plus {.icon('f0d5')}
+.i-sortd {.icon('f0d7')}
+.i-sorta {.icon('f0d8')}
+.i-comments-alt {.icon('f0e6')}
+.i-heart {.icon('e60c')}
+.i-heart-empty {.icon('e60d')}
+.i-eye {.icon('e900')}
+.i-gift {.icon('f06b')}

@@ -1,0 +1,13 @@
+﻿/* Tabs */
+
+/* The seemingly pointless border (as same colour) is a fix for IE aliasing issues
+   (border-radius + our lineheight causes spacing issues at the bottom of a tab) */
+.tabs {display:block; border-bottom:4px solid @grn2; }
+.tabs li {display:table-cell; *zoom:1; *display:inline; }
+.tabs li a {display:inline-block; text-align:center; border:1px solid @gry6; background:@gry6; padding:@m @l; .margin-right(@s); color:@gry1; border-radius:3px 3px 0 0; font-weight:bold; cursor:pointer; @media @media-s{font-size:@m; padding:@s @m; .margin-right(@xs);}}
+.tabs li a:hover {background:@grn5; border-color: @grn5;}
+.tabs li a:active {background:@grn4; border-color: @grn4;}
+.tabs li.act a {color:#fff; background:@grn2; cursor:default; border-color: @grn2;}
+.tabs li.facebook a {color:#fff; background:@btnFbBg; border-color: @btnFbBg;}
+
+.tabs+.tile {border: @border-m; border-top:none; box-shadow:none;}

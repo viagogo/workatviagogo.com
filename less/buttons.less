@@ -1,0 +1,63 @@
+﻿/*-Buttons-*/
+/*buttons base css*/
+
+.btn{.button()}
+
+    
+.btn.pri,.btn.sec,.btn.err,.btn.fb, .btn.pink {color:#fff} .btn.light{color:#000 !important}
+.btn.pri {.btn-bg(@btnPriBg)}
+.btn.sec {.btn-bg(@btnSecBg)}
+.btn.dark {.btn-bg(@btnDarkBg)}
+.btn.light {.btn-bg-light(@btnLightBg)}
+.btn.err {.btn-bg(@btnErrBg); border-radius: @radius-s;.btn-padding()}
+.btn.fb {.btn-bg(@btnFbBg)}
+.btn.pink {.btn-bg(@btnPinkBg)}
+
+
+.btn.disabled,.btn[disabled]{cursor:default;background-color:@gry6;background-image:none; color:@gry4; .box-shadow(0 1px 0 darken(@gry6, 10%));
+	&:hover, &:active, &:focus {top:0; background-color:@gry6}
+	&:active, &:focus {.box-shadow(0 1px 0 darken(@gry6, 10%))}
+}
+
+/*Button Sizes - Small & Large (Medium is default)*/
+.btn.l{padding:10px 18px;font-size:19px;line-height:normal;}
+.btn.s{padding:3px 9px;font-size:13px;line-height:19px}
+
+/*Block buttons*/
+.btn.bk{display:block;width:100%;.padding-left(0);.padding-right(0);.box-sizing(border-box)}
+.btn.bk+.btn.bk{margin-top:@xs}
+.btn.bk.l+.btn.bk.l{margin-top:@m}
+
+/* 'btn.a' - Optional link type btn
+ 'btn.r' - Link with arrow - Ideally for secondary actions in mobile */
+
+.btn.a,.btn.a:active,.btn.a[disabled], .btn.r{background-color:transparent;background-image:none;}
+.btn.a, .btn.r{border:0;cursor:pointer;color:@blu1; .box-shadow(none)}
+.btn.a {padding:@m 0}
+.btn.a:hover{color:#005580;background-color:transparent}
+.btn.a[disabled]:hover{color:#333333;text-decoration:none}
+.btn.a:active,.btn.a:focus, .btn.r:active,.btn.r:focus{top:0}
+
+.btn.r {font-size:14px !important;text-align:left; border-top:@border-solid; margin-top:0 !important; .margin-left(-@m); .margin-right(-@m); width:auto}
+ 
+/* See if we need these...
+
+.btnlist .btn{}
+.btnlist .btn.active {background-color:#8CC63F; .text-shadow(0 1px 1px rgba(0, 0, 0, 0.5))}
+
+--optional for btn icons--
+.btn.l [class^="icon-"]{margin-top:2px}
+.btn.s [class^="icon-"]{margin-top:0}
+*/
+
+/* Simulated hyperlink */
+.link{color:@linkColor;text-decoration:none; cursor:pointer;}
+.link:hover{color:@linkColorHover}
+
+// Buttons with spinners
+.btn[data-btn-loader] .btn-spin { display:none; pointer-events: none; }
+.btn[data-btn-loader] .btn-label { display:none; pointer-events: none; }
+/*.btn[data-btn-loader] .btn-spin { opacity:1; position:absolute; top:50%; pointer-events: none; }*/
+.btn[data-btn-loading] .btn-content { display:none; }
+.btn[data-btn-loading] .btn-label { display:block !important; }
+.btn[data-btn-loading][data-btn-type="spin"] .btn-spin { display:block !important; }

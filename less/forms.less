@@ -1,0 +1,259 @@
+﻿/*-Forms-*/
+fieldset {border:0; margin:0; padding:0;}
+button,input,select,textarea{color:#373839;margin:0;font-size:100%;vertical-align:middle; .webfont();}
+button,input{*overflow:visible;line-height:normal}
+button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0;}
+button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}
+input[type="search"]{.box-sizing(content-box);-webkit-appearance:textfield;}
+input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
+textarea{overflow:auto;vertical-align:top}
+
+
+/*All text inputs*/
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+.webfont(); width:100%; padding: 4px 3px; border: 2px solid #CCC; margin-top:4px; font-size: 16px; line-height: 20px; color: #47484a; .transition(all 0.2s)}
+body input:-ms-input-placeholder {.transition(none) /*this ie10 fix stops a glitch on search input home page on screen resize*/}
+/*All text inputs minus textarea*/
+select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+height:38px}
+/*All text inputs minus select*/
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+.box-sizing(border-box); .input-background-color(); -webkit-appearance:none; border-radius:0; padding: 4px 7px;}
+/*radios & checkboxes*/
+input[type="checkbox"],input[type="radio"] {
+display:inline-block; margin-top:-2px}
+/*radios & checkboxes labels*/
+input[type="checkbox"] ~ label, input[type="radio"] ~ label {display:@inputlabel; line-height:normal; margin-top:@xs; font-weight: normal}
+/*on focus*/
+
+/* Remove spinners for number input */
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
+input[type=number] {-moz-appearance:textfield;}
+
+input[disabled], textarea[disabled], select[disabled], .dbd {background-color:@gry7; color:@gry3; -webkit-text-fill-color:@gry2}
+
+input[type="file"] {margin-top:4px; background-color:#fff}
+input[type="file"]::-webkit-file-upload-button {.button; padding:@xxs @s;font-size:@m;line-height:19px}
+input[type="file"]::-ms-browse {.button}
+input[type="file"]::-ms-value {background-color:#fff; border: 2px solid #CCC; margin-right:@xs}
+
+::-webkit-input-placeholder {color:#bfbfc0;}
+:-moz-placeholder {color: #bfbfc0;}
+
+input[type="checkbox"].hide + i {cursor:pointer}
+
+label {font-weight:bold;font-size:@labelFontSize; display:block; .webfont()}
+input[type="radio"] ~ label, input[type="checkbox"] ~ label {font-size:@labelforFontSize; cursor:pointer}
+input.sel {border:2px solid @blu4}
+
+/*Use for responsive forms - 3 columns, then 2, then 1*/
+
+.col321, .col21 {margin-bottom:@xs; margin-right:2%; .float-left();
+	& label {display:inline !important}
+}
+
+.col321 {width:31.3%;
+	@media @media-m {width:48%}
+	@media @media-s {width:100%}
+}
+
+.col21 {width:48%;
+	@media @media-s {width:100%}
+}
+
+.form + .form {margin-top:15px;}
+
+.form .fg {margin-bottom:15px}
+.form .fg:last-of-type {margin-bottom:0}
+.form input+input {margin-top:@s}
+.form small {color:@gry3; margin-top:@xxs; display:block; margin-bottom:-@xxs}
+.form small.ibk { display:inline-block; }
+.form li {padding-bottom:@xs}
+
+/* For Alternate inline form */
+/* Tried doing without changing markup for this layout, however problem aligning radio/checkboxes
+.form.fline .fg {.cfix;}
+.form.fline label{.float-left(); width:27%;  text-align:right;}
+.form.fline input, .form.fline small, .form.fline select, .form.fline textarea{width:70%; .float-right();}
+*/
+.form.fline .fg {.cfix;}
+.form.fline label{.float-left(); width:27%;  .text-align-right(); margin-top:@m;
+	@media @media-m {float:none; width:auto; .text-align-left(); margin-top:0}
+}
+.form.fline .inin /* Inline input */{width:70%; .float-right();
+	@media @media-m {float:none; width:auto}
+}
+.form.fline input[type="radio"] ~ label, .form.fline input[type="checkbox"] ~ label {width:auto; float:none; margin-top:@xs}
+
+select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+border-color: @blu1; outline: 0; .transition(all 0.3s ease);}
+
+
+/* Easy Form Layout */
+/*make them easyily readable inputs*/
+.easy input[type="text"],.easy input[type="password"],.easy input[type="datetime"],.easy input[type="datetime-local"],.easy input[type="date"],.easy input[type="month"], input[type="time"],.easy input[type="week"],.easy input[type="number"],.easy input[type="email"],.easy input[type="url"],.easy input[type="search"],.easy input[type="tel"],.easy input[type="color"] {
+margin-top:0; .padding-left(0); .padding-right(0); border-left-color: transparent;border-right-color: transparent;border-top-color: transparent; .transition(all 0.2s)}
+.easy select {border-left-color: transparent;border-right-color: transparent;border-top-color: transparent; .transition(all 0.2s)}
+
+
+/* For Form Sets */
+/* For Form Sets
+.form.fset .fg {border-bottom:@border-solid; padding-bottom:@l}
+.form.fset .fg:last-child {border-bottom:0; padding-bottom:0; margin-bottom:0}
+.form.fset .fg input+label {margin-top:15px}
+
+.form.inl label {display:inline-block; text-align:right; .padding-right(@l); width:29%; .box-sizing(border-box)}
+.form.inl input,.form.inl small {display:inline-block; width:70%; .box-sizing(border-box)}
+.form.inl small {.padding-left(30%)}
+
+/*
+To ensure consistency if used accidentally instead of a label
+
+.form > div > h1,
+.form > div > h2,
+.form > div > h3,
+.form > div > h4,
+.form > div > h5,
+.form > div > h6 {font-size:16px; font-weight:bold}*/
+
+/*Form widths - convert to variabls after testing*/
+/* fe = form element */
+.form .fel {width:50%; display:block;} /*block here forces validation errors to new line*/
+.form .fem {width:32%}
+.form .fel, .form .fem {
+	@media @media-s {width:100%}
+}
+.form .fes {width:80px}
+.form .fes + .fes {.margin-left(@s);}
+.form .fexs {width:50px}
+.form .helper {vertical-align:bottom; font-size:12px; line-height:30px; .margin-left(@xxs);}
+
+
+/*Inline Group - Use this class for inline inputs */
+
+.inlgrp {text-align:justify;}
+/*.inlgrp:after {content:"";display:inline-block;width:100%; height:1px; overflow:hidden}*/
+.inlgrp > div {display:inline-block; vertical-align:bottom; /**zoom:1; *display:inline;*/ position:relative;}
+.inlgrp label {line-height:20px}
+.inlgrp input, .inlgrp select {vertical-align:bottom}
+.inlgrp input[type="radio"], .inlgrp input[type="checkbox"] {vertical-align:baseline}
+.inlgrp .field-validation-error { font-size: 14px; line-height:20px; position:absolute; .left(0); top: 100%; z-index:1;}
+
+/*Classes for inline width*/
+.inlgrp.inl2 > div {width:49%; *width:48%}
+.inlgrp.inl3 > div {width:32%; *width:31%}
+/*For IE7*/
+.inlgrp.inl2 > div:first-child {.margin-right-ie7(2%)}
+.inlgrp.inl3 > div:first-child+div {*margin:0 2%}
+
+/*Inline input with button*/
+.form .inlbtn {display:table; width:100%}
+.form .inlbtn > label {display:table-row}
+.form .inlbtn > div {display:table-cell}
+.form .inlbtn > label + div {.padding-right(1%);}
+.form .inlbtn > div + div {width:1px; .text-align-right()}
+
+/*add .l to .inlbtn to size it large*/
+.form .inlbtn.l input[type="text"] {margin-top:0; padding-left:16px; padding-right:16px; border-radius: 5px 0 0 5px; font-size: 36px;height: 71px; line-height: 1.5;}
+.form .inlbtn.l .btn {font-weight: normal;padding-left: 18px;padding-right: 18px;box-shadow: none;border-radius: 0 5px 5px 0;margin-left: 2px;font-size: 36px;height: 71px;line-height: 1.5; color: white; background-color: @grn2; .box-shadow(none)}
+.form .inlbtn.l .btn:hover {background-color: @grn3;}
+@media @media-m {
+    /*.form .inlbtn.l input[type="text"] {margin-top:0; padding-left:@xxl !important; padding-right:@xl; border-radius: 5px 0 0 5px; font-size: @xl;height: 45px; line-height: 1.5;}*/
+    /*.form .inlbtn.l .i-search {font-size:@xl !important; left:8px !important;}*/
+}
+
+/* Inline icons */
+/* |___________________________________|*/
+/* |			.addon			       |*/
+/* |  -------------------------------  |*/
+/* |  | .symb |        .inpt        |  |*/
+/* |  -------------------------------  |*/
+/* |___________________________________|*/
+
+.addon {display:table; border-collapse:separate !important; margin-top:4px}
+.addon .symb, .addon .inpt {display: table-cell;}
+.addon .symb {width: 1%;white-space: nowrap;font-size:20px;font-weight:bold; line-height:22px; padding:@xs @m;background-color: @gry7;text-align: center;vertical-align: middle;border-bottom:2px solid #ccc;border-top:2px solid #ccc;.border-left(2px solid #ccc)}
+.addon .symb:last-child  {.border-left(0); .border-right(2px solid #ccc)}
+.addon .inpt input {margin:0 !important; line-height:1.5}
+
+.addon.l .symb {font-size:30px; padding:@m 14px;}
+.addon.l .inpt input {height:50px; font-size:@xl;}
+
+/*required star*/
+.req label:after {content:"*"; color:#d12626;}
+
+/* builtin validation errors */
+.field-validation-error {display:inline-block}
+.field-validation-valid {display:none}
+
+.validation-summary-errors,
+.field-validation-error {color:#fff; background:#e45d5d}
+
+.field-validation-error {padding:5px @s}
+.validation-summary-errors {padding:0 @s}
+
+.input-validation-error {border: 2px solid #dd3535 !important;}
+
+.validation-summary-errors {margin-bottom: @m}
+
+
+/*-Error-*/
+.err span {margin-bottom: 0 !important}
+ul.err { padding-bottom: 0 !important; margin:@errmargin}
+.err li { list-style-type: none;}
+.err{border-radius:@xxs; background:#e45d5d;padding:@xxs @xs;}
+
+/* old custom errors - try not to use this stuff as it's being deprecated - use the builtin validation instead */
+.rgxErr {border-radius:@xxs;-webkit-border-radius:@xxs; background:#e45d5d;padding:@xxs @xs;max-width:87%;z-index:1;position:absolute; opacity:0.9;filter: alpha(opacity=9); .box-shadow(1px 1px 3px rgba(0, 0, 0, .3))}
+.rgxErr .a {position:absolute;width:0;height:0;border-color:transparent;border-style:solid; color: #fff}
+.rgxErr .a.u {margin-top:-5px; top: 0; .left(9px); .margin-left(-5px);border-bottom-color:#dd3535; border-width: 0 5px 5px;}
+.rgxErr span, .err span {color:#fff; padding-bottom:0 !important}
+.rgxInputErr { border: 1px solid #dd3535; }
+.rgxInputOk { border: 1px solid #8CC63F }
+
+
+/*Autocomplete*/
+.aComp {z-index:2;position:absolute;list-style-type:none;margin:0;padding:0;border:1px solid rgba(0, 0, 0, .3);background:white;.box-shadow(1px 1px @xxs rgba(0, 0, 0, .3))}
+.aComp li {padding:@m;border-bottom:@border-solid; cursor:pointer}
+.aComp li.sel, .aComp li:hover { background:@gry9}
+
+/*
+.ttm {.left(2%)}
+.aup, .adown {width: 0; height: 0; position: absolute;}
+.aup {.border-left(5px solid transparent);.border-right(5px solid transparent);	border-bottom: 5px solid #dd3535;top: -6px}
+.adown {.border-left(5px solid transparent);.border-right(5px solid transparent);	border-top: 5px solid #dd3535;bottom: -6px}
+.aleft{.left(10px)}
+.aright{.right(10px)}
+
+/mmonth drop downs /
+.mmonth { width: auto !important; }*/
+
+/* Toggle Switch */
+.toggle {.cfix}
+.toggle input:empty {display:none}
+.toggle input:empty ~ label {position: relative; .float-left() ;line-height: 29px;text-indent:70px;font-weight:bold;margin-top:0;cursor: pointer;-webkit-user-select: none;-moz-user-select: none; -ms-user-select: none; user-select: none;}
+.toggle input:empty ~ label:before, .toggle input:empty ~ label:after {content: ' ';position: absolute; height:29px; display: block;top: 0;bottom: 0; .left(0); width: 63px;background-color: #cc3333;border-radius: @xxs;box-shadow: inset 1px 2px 1px rgba(0,0,0,0.3);-webkit-transition: all 100ms ease-in; transition: all 100ms ease-in}
+.toggle input:empty ~ label:after{width: 23px; height:23px; top: 3px;bottom: 3px; .margin-left(@xxs);background-color: #fff;border-radius: 2px;box-shadow: 0 2px 1px rgba(0,0,0,0.2)}
+.toggle input:checked ~ label:before {background-color: #8cc63f}
+.toggle input:checked ~ label:after {.margin-left(37px);}
+.toggle input[disabled] ~ label:before {background-color:@gry6}
+
+/* File upload for Kyc and HighRisk Listing */
+.fileinput-button {position: relative; overflow: hidden;}
+.fileinput-button input {position: absolute;top: 0;right: 0;margin: 0;opacity: 0;-ms-filter: 'alpha(opacity=0)';font-size: 100px;direction: ltr;cursor: pointer;}
+
+//[AB 325]
+.input-validation-valid {border: 2px solid @grn2 !important;}
+.input-validation-tick { color:@grn2; display: inline-block; position: absolute; top: 50%; margin-top: -5px; right: 15px; }
+
+/* Card type on input */
+.input-crd {display:block; position:relative;}
+.input-crd:before {background-image:url(/img/2/assets/icons/cards/grouped/amaex-alt/mc_vs_ax-alt_jcb_disc_transparent_vertical_037.png); background-position:0 40px; background-repeat:no-repeat; content:""; display:block; height:45px; .right(10px); .opacity(0); pointer-events:none; position:absolute; top:0; .transition(opacity 0.2s ease); width:37px;}
+.input-crd-pos-val:before {.right(-47px);}
+[class*="input-crd-"]:before {.opacity(1);}
+[class*="input-crd-"].not(.input-crd-pos-val) input {.padding-right(48px);}
+.input-crd-visa:before {background-position:0 -1px;}
+.input-crd-mastercard:before {background-position:0 -48px}
+.input-crd-amex:before {background-position:0 -95px}
+.input-crd-jcb:before {background-position:0 -141px}
+.input-crd-discover:before {background-position:0 -189px}

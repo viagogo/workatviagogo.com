@@ -1,0 +1,16 @@
+﻿/*Text On Image - T.O.I.*/
+.toi {position:relative; z-index:0; font-size:28px; text-align:center; background:@gry9;}
+.gCol4 > .toi {@media @media-l{font-size:24px} @media @media-s{font-size:24px}} /*if TOI is in a 3 col layout modify the font size as you shrink*/
+.toi a {display:block; width:100%; padding-top:66.8%} /*width to top padding ratio trick to reserve height for image*/
+.toi img {.transition(opacity 0.2s); -webkit-backface-visibility: hidden; z-index:-2; position: absolute; top: 0; left: 0; text-indent:-9999px}
+.toi:hover img {opacity:0.8}
+.toi:after {position:absolute; z-index:-1; content:''; bottom:0; right:0; min-height:100%; width:100%; box-shadow: inset 0 -130px 80px -50px rgba(0, 0, 0, 0.6) }
+.toi .tit, .toi .tag {z-index:2; position:absolute;}
+.toi .tit {bottom:0; padding:@m; width:100%; .left(0); line-height:1.2; color:#fff}
+.toi .tag {top:0; .right(12px); font-size:14px; text-transform:uppercase; font-weight:700; background:#fff; color:@gry1 !important; padding: 2px 8px;}
+.toi .bar {position:absolute; height:4px; width:100%; .left(0); bottom:0; z-index:2;}
+.toi.bg {height:265px}
+.toi .bgimg {z-index:-1; background-size: cover; background-position: center; position:absolute; top:0; left:0; right:0; bottom:0;}
+
+.bdrHover img {border:@border-solid;}
+.bdrHover img:hover {border-color:@grn1;}

@@ -1,0 +1,65 @@
+﻿/*============================= Tablet Specific Variables/Mixins =============================*/
+
+/*Scaffolding*/
+@bodyBackground:@gry9;
+@hdrBackground:@gry1;
+@hdrHeight: 60px;
+@hdrShadow:none;
+@menuLinkColor: #fff;
+@menuLinkActiveBg:#fff;
+@menuLinkActvieColor:@gry2;
+@menuLiHoverBg: @gry1;
+@menuLIHoverLinkColor: #fff;
+@pgwMaxWidth:1200px;
+@textColor:@gry1;
+@ftrColor:@gry3;
+@ftrMuteColor:@gry5;
+@ftrColorHov:darken(@ftrColor, 10%);
+@ftrMuteColorHov:darken(@ftrMuteColor, 10%);
+/*Grids*/
+.grid-table-bg() {background: #fff; border-radius: @radius-m; border: @border-solid}
+@grid-td-padding: @xs @s @xs @xs;
+.grid-td-border() {border-bottom: @border-solid;}
+.grid-zebra() {background: @gry9;}
+.grid-th-padding() {padding:@s @xs}
+.grid-pad-right() {.padding-right(12px)}
+
+.grid-list-td-padding() {padding:@m @s;}
+.grid-list-td-border() {border-top: none; /*box-shadow: inset 0 7px 0px @gry6, 0 -7px 0 @gry6 Testing tablet spacing */}
+
+/*Buttons*/
+.btn-padding() {padding:8px 16px}
+
+/*#search*/
+@leftPadSearch: 35px;
+@margTopSearch:0;
+.search-icon-size() {font-size:22px; top:8px; left:9px}
+@search-close-pos:0;
+@searchShadow: rgba(0,0,0,.4);
+@searchResultsPos:absolute;
+@searchResultsMargin: 0;
+
+/*Forms*/
+.input-background-color() {background-color: #fff}
+@form-row-padding: (4px 2%);
+@errmargin: (0 2%);
+@labelFontSize: 16px;
+@labelforFontSize: 14px;
+@inputlabel: inline-block;
+
+/*box*/ 
+.border-edge() { .box-shadow(1px 2px 1px @gry6, -1px -1px 0 @gry8)}
+@tiletileMarg:0;
+.tilePressSel() {border:0;background-color:@blu7; .box-shadow(0 0 0 5px @blu4)}
+
+/*Round numbers*/
+@step-number-border: 4px;
+@step-number-padding: 3px 9px;
+
+/*Accordian*/
+.accordian-container() {border-bottom:@border-m; border-left:@border-m;border-right:@border-m}
+
+/*Breadcrumb*/
+@breadcrumb-spacing: @m 0;
+@breadcrumb-margin-right: @l;
+@breadcrumb-dash: -@m;

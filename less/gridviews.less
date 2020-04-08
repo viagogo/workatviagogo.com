@@ -1,0 +1,151 @@
+﻿/* Data Table*/
+
+table.data { width: 100%; border:@border-m}
+table.data th, table.data td {padding:@xs @m; text-align:center;
+	@media @media-m {font-size:13px}
+	@media @media-s {font-size:12px}
+}
+table.data th {background-color: @gry8;border-bottom:@border-m}
+table.data td {border-bottom:@border-solid}
+
+table.data th:first-child, table.data td:first-child {.padding-left(@s); .text-align-left();}
+table.data th:last-child, table.data td:last-child {.padding-right(@s); .text-align-right();}
+
+/* Horizontal table scroller for small screens - Use appropriate size for amount of columns. More columns, bigger the size! */
+.data.s {min-width:450px}
+.data.m {min-width:550px}
+.data.l {min-width:650px}
+
+
+/* List Table*/
+table.list {width:100%; border-collapse:separate; border:@border-solid}
+table.list td {padding:@m @s;border-bottom: @border-solid;}
+table.list tr:hover {}
+table.list td:first-child {background:@gry8; .border-right(@border-solid)}
+table.list.click td:first-child, .click table.list tr:hover td:first-child {background-color:@gry7}
+
+
+/* Table Grid */
+.grid {position:relative}
+.grid table, .grid .table {.grid-table-bg();}
+table.grid, .table.grid {vertical-align:top} 
+.grid .btn {white-space:nowrap}
+
+.grid th, .grid .th {font-weight:bold;border-bottom:2px solid #9fa0a1;.grid-th-padding()}
+.grid th span, .grid .th span {.transition(all 0.2s ease)}
+.grid th span[class*="sort"], .grid .th span[class*="sort"] {.padding-right(4px);}
+.grid td, .grid .td {padding:@grid-td-padding; .grid-td-border()}
+/*.grid td:last-child, .grid th:last-child {.grid-pad-right()}*/
+/*.grid tr:last-child td {border-bottom:inherit} */
+.grid tr.clicked td:not([class*="v-bg-"]), .grid .tr.clicked .td:not([class*="v-bg-"]) {background-color: #eee}
+.grid.click td, .click .grid td, .grid.click .td, .click .grid .td {cursor:pointer}
+.grid.click tr:hover, .click .grid tr:hover, .grid.click .tr:hover, .click .grid .tr:hover, .grid tbody tr:hover {background-color:@gry8;}
+.grid select {font-size:15px; margin:4px 0}
+.grid select.qty { width: 60px}
+
+.grid td.r, .grid .td.r {.icon('f054'); position:relative; font-size:16px}
+.grid td.r:before, .grid .td.r:before {.iconfont(); position:absolute; .right(7px); top:50%; margin-top:-7px; color:@gry5}
+
+/* Grid view zebra */ 
+// .js-zebra td {.grid-zebra();} 
+/* this is a grid zebra */
+.zebra tr:nth-child(odd) td, .zebra .tr:nth-child(odd) .td {.grid-zebra();}
+
+.grid.list table, .grid.list .table {border-collapse:separate}
+.grid.list td, .grid.list .td {.grid-list-td-padding();.grid-list-td-border();}
+.grid.list td:first-child, .grid.list .td:first-child {background:@gry8; .border-right(@border-solid)}
+.grid.list.click td:first-child, .click .grid.list tr:hover td:first-child, .grid.list.click .td:first-child, .click .grid.list .tr:hover .td:first-child {background-color:@gry7}
+.grid.list .tr { color: inherit; }
+
+.grid .t {margin-bottom:0}
+
+
+/* Event Detail - Infinite Grid */
+.grid.infinite [class*="v-bg-"] {width:4%}
+.grid.infinite td, .grid.infinite .td {padding:@m @s;}
+.grid.infinite tr, .grid.infinite .tr { min-height:76px;}
+
+
+.mapColor {border: 1px solid rgba(0, 0, 0, 0.12); height: @m; width: @m; border-radius: @xxs; .float-left(); display:block; .margin-left(@xs)}
+
+.grid [class*="i-sort"] {display:none;}
+.grid .sorta .i-sorta {display:inline !important}
+.grid .sortd .i-sortd {display:inline !important}
+
+/*Sort
+.sorta {background: url(/img/assets/grids/sort_asc.gif) no-repeat center right}
+.sortd {background: url(/img/assets/grids/sort_desc.gif) no-repeat center right}*/
+/*this is a icon hack - would rather use this than images though :) */
+.sort i { display:none;}
+.sort .sortd .i-sortd {display:inline}
+.sort .sorta .i-sorta {display:inline}
+
+/*Sort Widget*/
+.sort {.user-select(none); border-radius:@radius-s; border:1px solid @gry6; .box-sizing(border-box)}
+.sort li {.float-left(); .border-left(1px solid #fff); .border-right(1px solid @gry5)}
+.sort li:first-child {.border-left(none); .border-radius(@radius-m,0,@radius-m,0)}
+.sort li:first-child, .sortW li:first-child:hover {cursor:default}
+.sort li:last-child {.box-shadow(1px 0 0 #fff)}
+.sort li:hover, .sortdb {background-color:@gry9; cursor:pointer}
+.noColorChange .sortdb {background-color:#fff}
+.grid .hoverColor:hover {cursor:pointer}
+.sort, .sort li:first-child:hover {background-color: @gry7}
+.sort li.nosort { cursor:default; }
+.sort li span {display:block; padding:@m}
+.sort li a {display:block; padding:@m}
+
+.grid .loader {display:none;position:relative;z-index:9999;top:120px;}
+.grid .loader > div {position:absolute;overflow:hidden;padding:@l;top:50%;margin-top:-50px;width:200px;.left(50%);.margin-left(-100px);text-align:center;font-size:16px;font-weight:bold}
+
+#overlay {position: absolute;top: 0;.left(0);width: 100%;z-index: 5000;}
+#overlay>div{position:relative;opacity:0.3;top:-60px;background-color:black}
+
+/* div tables */
+.table {display:table;border-collapse:collapse}
+.thead { display:table-header-group; }
+.tbody { display:table-row-group; }
+.tr {display:table-row}
+.td {display:table-cell;}
+
+/* pager old styles
+.grid .pager {height:33px; .float-left();}
+.grid .pager ul {.float-left();}
+.grid .pager ul li {display:inline;}
+.grid .pager ul li.v-hidden { display:none; }
+.grid .pager ul li a {.float-left(); margin-top:6px; padding:0px 7px; text-decoration:none; font-weight:normal; cursor:pointer; color:#696969; border-radius:3px; border:1px solid transparent; text-shadow:0 1px 0 rgba(255,255,255,0.6);}
+.grid .pager ul li a:hover {text-decoration:none; color:#237ac1; background:rgb(180, 180, 180); background:rgba(255, 255, 255, .8);}
+.grid .pager ul li.v-selected a {background-color:#3187cd; color:#fff; border:1px solid #237ac1; font-weight:bold; cursor:default; text-shadow:0 -1px 0 rgba(0,0,0,0.3);}
+.grid .pager ul li.v-disabled a {background-color:transparent; color:#9fa0a1; cursor:default;}
+
+.grid .pageCount {height:33px; .float-left(); font-size:11px; color:#696969; text-shadow:0 1px 0 rgba(255,255,255,0.6)}
+.grid .pageCount span {line-height:33px; padding:0 12px;}
+.grid .pageCount strong {font-weight:normal}*/
+
+.pageW {border-radius:@radius-m; border:1px solid @gry6; background-color: @gry7; .box-sizing(border-box)}
+
+
+/* New pager widget need to be sorted  */
+
+.pager {.float-right()}
+.pager ul {.float-left()}
+.pager ul li {display:inline;}
+.pager ul li.v-hidden { display:none; }
+.pager ul li a {.float-left(); text-decoration:none; font-weight:normal; cursor:pointer; color:#696969; padding: @m}
+.pager ul li.sel a {font-weight:bold; color:@gry1} 
+.pager ul li:last-child a:hover {.border-radius(0,@radius-m,0,@radius-m)}
+.pager ul li a:hover {text-decoration:none; color:#696969;  background-color:#fcfcfc}
+.pager ul li.v-selected a {background-color:#fcfcfc; color:#37383a;  font-weight:bold; cursor:default; text-shadow:0 -1px 0 rgba(0,0,0,0.3);}
+.pager ul li.v-disabled a {background-color:transparent; color:#9fa0a1; cursor:default;}
+
+.pageCount {.float-left(); font-size:14px; color:#696969; text-shadow:0 1px 0 rgba(255,255,255,0.6); padding:@m;}
+.pageCount strong {font-weight:normal}
+
+/* Event Detail Pagination override */
+.grid .pager {.float-left()}
+.grid .pager ul li a {text-shadow:0 1px 0 rgba(255,255,255,0.6);.border-left(1px solid @gry5); .box-shadow(inset 1px 0 0 #fff)}
+
+/* Pagination styling - Quick fix for My account pages, need to do properly */
+#content-center.gCol9 .pager ul li a {font-size:15px; border-top:2px solid @gry6; border-bottom:2px solid @gry6; .border-left(2px solid @gry6); width:36px; padding:@s 0; text-align:center}
+#content-center.gCol9 .pager ul li:last-child a {.border-right(2px solid @gry6);}
+#content-center.gCol9 .pager ul li.sel a {background-color:@gry7} 
+#content-center.gCol9 .pager ul li a:hover {background-color:@gry6}

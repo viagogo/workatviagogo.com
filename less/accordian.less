@@ -1,0 +1,11 @@
+﻿/* Accordion */
+.acc {.accordian-container()}
+.acchead {border-top:@border-m;padding:@m @s}
+.accbody {border-top:2px dashed @gry6; padding: 15px 0; margin:0 @m;.cfix()}
+.acchead.sel {color:@mag2 !important; background-color:#fff !important}
+.acchead.sel .i-info-sign {display:none}
+.acchead.done {color:@gry5 !important}
+.acchead.done .i-info-sign { .icon('f00c'); color:@gry5 !important}
+
+ /* For Sales page - have to put this otherwise affects detais, view due to shared view */
+.mbxl>.acc {border-top:0}
