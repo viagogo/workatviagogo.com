@@ -189,15 +189,16 @@
                 allJobs.push(element)
               });
               this.allJobs = allJobs
+              
               this.allJobs.forEach(element => {
                 var locationIndex = locations.indexOf(element.categories.location)
                 if (locationIndex === -1) locations.push(element.categories.location)
-                this.allLocations = locations
-
                 var departmentIndex = departments.indexOf(element.categories.department)
                 if (departmentIndex === -1) departments.push(element.categories.department)
-                this.allDepartments = departments
               });
+
+              this.allDepartments = departments
+              this.allLocations = locations
             });
         }
       }
