@@ -66,13 +66,17 @@
                 </label>
 
                 <div v-for="department in allDepartments">
-                    <label class="container"> {{department}}
-                      <input type="radio" v-model="selectedDepartment" v-bind:value="department" name="radio">
+                  <div v-if="department.jobs.length>0">
+                    <label class="container"> {{department.name}}
+                      <input type="radio" v-model="selectedDepartment" v-bind:value="department.name" name="radio">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                 </div>
               </div>
+
+
+            </div>
           </div>
           <div class="gCol9">
             <div class="sash">{{selectedDepartment}}</div>
@@ -82,15 +86,15 @@
                   <tr v-for="job in filteredJobs">
                     <td class="nowrap t s" id="content-desktop">
                       
-                      <strong>{{job.categories.department}}</strong>
+                      <strong>{{job.departments[0].name}}</strong>
                     </td>
                     <td>
-                      <i id="content-mobile">{{job.categories.department}}</i>
-                      <h4>{{job.text}} </span>
+                      <i id="content-mobile">{{job.departments[0].name}}</i>
+                      <h4>{{job.title}} </span>
                         <span class="t xs">
                           <span class="h s m0 bk">
                             <i class="i-location"></i>
-                            <span class="t s">{{job.categories.location}}</span>
+                            <span class="t s">{{job.location.name}}</span>
 
                           </span>
 
@@ -98,7 +102,7 @@
                     </td>
                     <td class="nowrap vbot">
                       <div class="txtr">
-                        <a class="btn pri" v-bind:href="job.hostedUrl">Apply</a>
+                        <a class="btn pri" v-bind:href="job.absolute_url">Apply</a>
                       </div>
                     </td>
 
@@ -156,7 +160,7 @@
           allDepartments: null,
           allLocations: null,
           selectedDepartment: "All",
-          selectedLocation: "All Locations",
+          selectedLocation: "All Locations"
         },
         computed: {
           filteredJobs: function () {
@@ -164,13 +168,13 @@
               let vm = this;
               let dept = vm.selectedDepartment;
               let loc = vm.selectedLocation;
-              let jobs = vm.allJobs;
+              let jobs = vm.allJobs
 
               if (dept !== "All") {
-                jobs = jobs.filter(j => j.categories.department === dept)
+                jobs = jobs.filter(j => j.departments[0].name === dept)
               }
               if (loc !== "All Locations") {
-                jobs = jobs.filter(j => j.categories.location === loc)
+                jobs = jobs.filter(j => j.location.name === loc)
               }
               return jobs
             }
@@ -178,27 +182,23 @@
           }
         },
         mounted() {
-          fetch('https://api.lever.co/v0/postings/viagogo?mode=json')
+          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/jobs?content=true')
             .then(response => response.json())
             .then(r => {
-              let allJobs = []
-              let locations = []
-              let departments = []
-
-              r.forEach(element => {
-                allJobs.push(element)
-              });
-              this.allJobs = allJobs
+              this.allJobs = r.jobs
+              var locations = []
               this.allJobs.forEach(element => {
-                var locationIndex = locations.indexOf(element.categories.location)
-                if (locationIndex === -1) locations.push(element.categories.location)
+                locations.indexOf(element.location.name) === -1 ? locations.push(element.location.name) : null
                 this.allLocations = locations
-
-                var departmentIndex = departments.indexOf(element.categories.department)
-                if (departmentIndex === -1) departments.push(element.categories.department)
-                this.allDepartments = departments
               });
             });
+
+          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/departments')
+            .then(response => response.json())    // one extra step
+            .then(d => {
+              this.allDepartments = d.departments
+            })
+            .catch(error => console.error(error));
         }
       }
     );
