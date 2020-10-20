@@ -14,9 +14,9 @@
     gtag("config", "UA-266806-100");
   </script>
   <title>viagogo Jobs | Jobs in New York, Limerick, Taipei and San Antonio</title>
-  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="/css/a.css" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/a.css" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="viagogo is the world's largest online marketplace for tickets to live events. We're hiring web developers, front-end developers, UX designers, software engineers, IT specialists, product analysts, data scientists and more! Openings for full-time, graduates, placements and internships. Explore jobs in Geneva, London, Limerick and elsewhere."
@@ -60,23 +60,39 @@
             <div v-else>
 
               <div class="fg">
-                <label class="container">All
-                  <input type="radio" v-model="selectedDepartment" value="All" name="radio">
+                <label class="container">All Departments
+                  <input type="radio" v-model="selectedDepartment" value="All Departments" name="radio">
                   <span class="checkmark"></span>
                 </label>
 
                 <div v-for="department in allDepartments">
-                  <div v-if="department.jobs.length>0">
-                    <label class="container"> {{department.name}}
-                      <input type="radio" v-model="selectedDepartment" v-bind:value="department.name" name="radio">
+                    <label class="container"> {{department}}
+                      <input type="radio" v-model="selectedDepartment" v-bind:value="department" name="radio">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                 </div>
               </div>
-
-
-            </div>
+              <hr>
+              <div v-if="!allDepartments">
+                <div class="spin s mtm"></div>
+              </div>
+              <div v-else>
+  
+                <div class="fg">
+                  <label class="container">All Teams
+                    <input type="radio" v-model="selectedTeam" value="All Teams" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+  
+                  <div v-for="team in allTeams">
+                      <label class="container"> {{team}}
+                        <input type="radio" v-model="selectedTeam" v-bind:value="team" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
           </div>
           <div class="gCol9">
             <div class="sash">{{selectedDepartment}}</div>
@@ -86,15 +102,15 @@
                   <tr v-for="job in filteredJobs">
                     <td class="nowrap t s" id="content-desktop">
                       
-                      <strong>{{job.departments[0].name}}</strong>
+                      <strong>{{job.categories.department}}</strong>
                     </td>
                     <td>
-                      <i id="content-mobile">{{job.departments[0].name}}</i>
-                      <h4>{{job.title}} </span>
+                      <i id="content-mobile">{{job.categories.department}}</i>
+                      <h4>{{job.text}} </span>
                         <span class="t xs">
                           <span class="h s m0 bk">
                             <i class="i-location"></i>
-                            <span class="t s">{{job.location.name}}</span>
+                            <span class="t s">{{job.categories.location}}</span>
 
                           </span>
 
@@ -102,7 +118,7 @@
                     </td>
                     <td class="nowrap vbot">
                       <div class="txtr">
-                        <a class="btn pri" v-bind:href="job.absolute_url">Apply</a>
+                        <a class="btn pri" v-bind:href="job.hostedUrl">Apply</a>
                       </div>
                     </td>
 
@@ -158,9 +174,11 @@
         data: {
           allJobs: null,
           allDepartments: null,
+          allTeams: null,
           allLocations: null,
-          selectedDepartment: "All",
-          selectedLocation: "All Locations"
+          selectedDepartment: "All Departments",
+          selectedLocation: "All Locations",
+          selectedTeam: "All Teams"
         },
         computed: {
           filteredJobs: function () {
@@ -168,13 +186,17 @@
               let vm = this;
               let dept = vm.selectedDepartment;
               let loc = vm.selectedLocation;
-              let jobs = vm.allJobs
+              let team = vm.selectedTeam;
+              let jobs = vm.allJobs;
 
-              if (dept !== "All") {
-                jobs = jobs.filter(j => j.departments[0].name === dept)
+              if (dept !== "All Departments") {
+                jobs = jobs.filter(j => j.categories.department === dept)
               }
               if (loc !== "All Locations") {
-                jobs = jobs.filter(j => j.location.name === loc)
+                jobs = jobs.filter(j => j.categories.location === loc)
+              }
+              if (team !== "All Teams") {
+                jobs = jobs.filter(j => j.categories.team === team)
               }
               return jobs
             }
@@ -182,23 +204,51 @@
           }
         },
         mounted() {
-          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/jobs?content=true')
+          fetch('https://api.lever.co/v0/postings/viagogo?mode=json')
             .then(response => response.json())
             .then(r => {
-              this.allJobs = r.jobs
+              allJobs = []
+              console.log(r)
+              r.forEach(element => {
+                allJobs.push(element)
+              });
+              this.allJobs = allJobs
               var locations = []
+              var departments = []
+              var teams = []
               this.allJobs.forEach(element => {
-                locations.indexOf(element.location.name) === -1 ? locations.push(element.location.name) : null
+                var locationIndex = locations.indexOf(element.categories.location)
+                if (locationIndex === -1) locations.push(element.categories.location)
                 this.allLocations = locations
+
+                var departmentIndex = departments.indexOf(element.categories.department)
+                if (departmentIndex === -1) departments.push(element.categories.department)
+                this.allDepartments = departments
+
+                var teamIndex = teams.indexOf(element.categories.team)
+                if (teamIndex === -1) teams.push(element.categories.team)
+                this.allTeams = teams
               });
             });
 
-          fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/departments')
-            .then(response => response.json())    // one extra step
-            .then(d => {
-              this.allDepartments = d.departments
-            })
-            .catch(error => console.error(error));
+
+          // fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/jobs?content=true')
+          //   .then(response => response.json())
+          //   .then(r => {
+          //     this.allJobs = r.jobs
+          //     var locations = []
+          //     this.allJobs.forEach(element => {
+          //       locations.indexOf(element.location.name) === -1 ? locations.push(element.location.name) : null
+          //       this.allLocations = locations
+          //     });
+          //   });
+
+          // fetch('https://boards-api.greenhouse.io/v1/boards/viagogo/departments')
+          //   .then(response => response.json())    // one extra step
+          //   .then(d => {
+          //     this.allDepartments = d.departments
+          //   })
+          //   .catch(error => console.error(error));
         }
       }
     );
