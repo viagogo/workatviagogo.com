@@ -178,7 +178,7 @@
           }
         },
         mounted() {
-          fetch('https://api.lever.co/v0/postings/viagogo?mode=json')
+          fetch('https://api.lever.co/v0/postings/StubHubHoldings?mode=json&department=viagogo')
             .then(response => response.json())
             .then(r => {
               let allJobs = []
